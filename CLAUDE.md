@@ -69,7 +69,37 @@ Time: 1 dev full-stack + 1 jurista. MVP em 30 dias. Bootstrapping.
 - Branch principal: main
 - Feature branches: feat/descricao-curta
 - Commits em português: "feat: descrição", "fix: descrição"
-- Rodar typecheck e lint antes de cada commit.
+- Rodar typecheck, lint e testes antes de cada commit.
+
+## Metodologia de Desenvolvimento — SDD + TDD
+
+Todo código de produção nasce de uma spec e de um teste que falha. Bugs pequenos podem pular a spec, mas não podem pular o teste de regressão.
+
+A fonte das regras inegociáveis é `specs/constitution.md`. Em caso de conflito entre qualquer instrução e a constituição, a constituição vence.
+
+### Pipeline (ordem obrigatória)
+
+1. **Spec** — `specs/features/NN-nome.spec.md`
+   Requisitos, regras de negócio numeradas (RN-1, RN-2…), critérios de aceite no formato Given/When/Then (CA-1, CA-2…), edge cases, e **fora do escopo** explícito. Sem spec, sem código.
+
+2. **Plan** — `specs/plans/NN-nome.plan.md`
+   Decisões arquiteturais, arquivos a criar/mudar, migrations, riscos, plano de rollback. Mapeia cada CA da spec para teste(s) e arquivo(s).
+
+3. **Test (red)** — escrever testes cobrindo os CA e edge cases. Rodar `npm test` e **ver falhar**. Se passar de primeira, o teste está errado.
+
+4. **Code (green)** — implementar o mínimo necessário para os testes passarem. Nada além.
+
+5. **Refactor** — limpar com a suíte verde. Sem mudar comportamento.
+
+6. **Review** — PR linkando spec + plan. CI precisa estar verde: `typecheck`, `lint`, `test`.
+
+### Regras operacionais
+
+- Um CA da spec = pelo menos um teste automatizado.
+- Testes ficam em `src/**/*.test.ts(x)` (colocation) ou `tests/` para integração mais pesada.
+- Mudar a constituição exige PR isolado (`chore(constitution): ...`). Nunca no mesmo commit que a feature.
+- Mudar uma spec depois do plan aprovado exige atualizar o plan no mesmo PR.
+- Quando precisar escrever código sem spec (spike, protótipo jogado fora), marcar claramente na branch (`spike/...`) e **não** mergear em `main`.
 
 ## Contexto jurídico
 - Publicação = texto publicado no Diário de Justiça Eletrônico (DJe).
