@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-on-surface": "#eff1f3",
+                    "on-secondary-fixed": "#0d1c2e",
+                    "primary-fixed-dim": "#aec7f6",
+                    "surface-container-high": "#e6e8ea",
+                    "secondary": "#515f74",
+                    "secondary-container": "#d5e3fc",
+                    "error": "#ba1a1a",
+                    "on-secondary-container": "#57657a",
+                    "on-primary-fixed": "#001b3d",
+                    "secondary-fixed": "#d5e3fc",
+                    "surface-variant": "#e0e3e5",
+                    "surface-tint": "#465f88",
+                    "tertiary": "#10002f",
+                    "primary-container": "#002147",
+                    "on-tertiary-fixed": "#25005a",
+                    "primary-fixed": "#d6e3ff",
+                    "inverse-surface": "#2d3133",
+                    "surface-dim": "#d8dadc",
+                    "on-primary": "#ffffff",
+                    "tertiary-fixed-dim": "#d2bbff",
+                    "primary": "#000a1e",
+                    "on-surface-variant": "#44474e",
+                    "on-error-container": "#93000a",
+                    "on-background": "#191c1e",
+                    "outline": "#74777f",
+                    "surface": "#f7f9fb",
+                    "on-surface": "#191c1e",
+                    "tertiary-fixed": "#eaddff",
+                    "surface-container": "#eceef0",
+                    "on-tertiary-fixed-variant": "#5a00c6",
+                    "on-primary-container": "#708ab5",
+                    "on-secondary-fixed-variant": "#3a485b",
+                    "error-container": "#ffdad6",
+                    "surface-container-highest": "#e0e3e5",
+                    "outline-variant": "#c4c6cf",
+                    "on-secondary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-low": "#f2f4f6",
+                    "secondary-fixed-dim": "#b9c7df",
+                    "on-error": "#ffffff",
+                    "tertiary-container": "#2c0068",
+                    "surface-bright": "#f7f9fb",
+                    "on-primary-fixed-variant": "#2d476f",
+                    "on-tertiary-container": "#9d6bff",
+                    "inverse-primary": "#aec7f6",
+                    "on-tertiary": "#ffffff",
+                    "background": "#f7f9fb"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- SideNavBar Shell -->
+<aside class="fixed left-0 top-0 bottom-0 flex flex-col py-8 h-screen w-64 bg-slate-50 border-none z-20">
+<div class="px-6 mb-10">
+<h1 class="text-lg font-bold tracking-tighter text-blue-950">Lexis AI</h1>
+<p class="text-[10px] uppercase tracking-[0.2em] text-on-surface-variant font-bold mt-1">Architectural Intelligence</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center px-6 py-3 text-slate-500 hover:bg-slate-100 transition-colors duration-200 font-['Plus_Jakarta_Sans'] font-medium tracking-tight text-sm" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="dashboard">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center px-6 py-3 text-slate-500 hover:bg-slate-100 transition-colors duration-200 font-['Plus_Jakarta_Sans'] font-medium tracking-tight text-sm" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="description">description</span>
+                Publications
+            </a>
+<a class="flex items-center px-6 py-3 text-blue-950 font-bold border-l-4 border-blue-950 bg-white transition-colors duration-200 font-['Plus_Jakarta_Sans'] tracking-tight text-sm" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="calendar_today">calendar_today</span>
+                Agenda
+            </a>
+<a class="flex items-center px-6 py-3 text-slate-500 hover:bg-slate-100 transition-colors duration-200 font-['Plus_Jakarta_Sans'] font-medium tracking-tight text-sm" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="article">article</span>
+                Pieces
+            </a>
+<a class="flex items-center px-6 py-3 text-slate-500 hover:bg-slate-100 transition-colors duration-200 font-['Plus_Jakarta_Sans'] font-medium tracking-tight text-sm" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="gavel">gavel</span>
+                Processes
+            </a>
+<a class="flex items-center px-6 py-3 text-slate-500 hover:bg-slate-100 transition-colors duration-200 font-['Plus_Jakarta_Sans'] font-medium tracking-tight text-sm" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="settings">settings</span>
+                Settings
+            </a>
+</nav>
+<div class="mt-auto px-4 space-y-1">
+<button class="w-full mb-6 bg-primary text-white py-3 rounded-lg font-semibold text-sm flex items-center justify-center gap-2 hover:opacity-90 transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                New Case
+            </button>
+<a class="flex items-center px-6 py-2 text-slate-500 hover:text-blue-900 font-medium text-sm" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="help">help</span>
+                Support
+            </a>
+<a class="flex items-center px-6 py-2 text-slate-500 hover:text-blue-900 font-medium text-sm" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="logout">logout</span>
+                Sign Out
+            </a>
+</div>
+</aside>
+<!-- TopAppBar Shell -->
+<header class="fixed top-0 right-0 left-64 z-10 flex justify-between items-center px-12 h-16 bg-white border-none">
+<div class="flex items-center bg-surface-container-low px-4 py-2 rounded-full w-96">
+<span class="material-symbols-outlined text-outline mr-2" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-full font-body" placeholder="Search cases, agendas, or documents..." type="text"/>
+</div>
+<div class="flex items-center gap-6">
+<button class="flex items-center gap-2 text-primary font-semibold text-sm font-['Inter']">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+                Create New
+            </button>
+<div class="h-6 w-px bg-outline-variant"></div>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:text-primary relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<div class="flex items-center gap-3">
+<div class="text-right">
+<p class="text-sm font-bold text-primary">Dr. Ricardo Silva</p>
+<p class="text-[10px] text-on-surface-variant font-medium">Sócio Sênior</p>
+</div>
+<img class="w-10 h-10 rounded-full object-cover" data-alt="professional portrait of a senior lawyer in a dark suit with a neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJhGhwKb82ldfhNtEgt4EOz1bPCC_aGwcmLVdVuLj5VITZ5Xvnl9mycASziT5Ka-__NIp-amumOSj2rljwXfZ4dN19yCKIhg__p4KdQ8jmAnYgtfN56IKICuNLGHy5prGt1EDk4HDUlEM7vjO0dT1tO7mz9P99E9-jRHAbmIVYfA0FP987i_QZHX_9fJzJopW9gtHWhh-lmlyjIRLIb83MF-FVHffBWSua5uoEMcBe4qQYvHEQ8wWEG-ReMPWqq5k3Iuu2dtBCjjfB"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-24 px-12 pb-12 min-h-screen">
+<div class="max-w-[1600px] mx-auto">
+<!-- Agenda Header Section -->
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-6">
+<div>
+<h2 class="text-4xl font-extrabold tracking-tighter text-primary mb-2">Agenda Inteligente</h2>
+<p class="text-on-surface-variant font-medium flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary-container" data-icon="auto_awesome" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+                        3 prazos críticos identificados pela Lexis AI hoje.
+                    </p>
+</div>
+<div class="flex items-center gap-4 bg-surface-container p-1 rounded-xl">
+<button class="px-6 py-2 rounded-lg text-sm font-bold transition-all bg-white text-primary shadow-sm">Mês</button>
+<button class="px-6 py-2 rounded-lg text-sm font-bold transition-all text-on-surface-variant hover:bg-white/50">Semana</button>
+<button class="px-6 py-2 rounded-lg text-sm font-bold transition-all text-on-surface-variant hover:bg-white/50">Dia</button>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center bg-white rounded-lg p-1 border border-outline-variant/30">
+<button class="p-2 hover:bg-surface-container rounded transition-colors"><span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span></button>
+<span class="px-4 font-bold text-primary">Outubro 2023</span>
+<button class="p-2 hover:bg-surface-container rounded transition-colors"><span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span></button>
+</div>
+<button class="bg-surface-container-highest p-2 rounded-lg text-primary hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined" data-icon="today">today</span>
+</button>
+</div>
+</div>
+<!-- Dashboard Layout: Asymmetric Sidebar + Grid -->
+<div class="flex gap-8">
+<!-- Filters Sidebar -->
+<div class="w-64 flex-shrink-0 space-y-8">
+<!-- Lawyers Filter -->
+<section>
+<h3 class="text-[11px] font-bold text-on-surface-variant tracking-[0.1em] uppercase mb-4">Advogados</h3>
+<div class="space-y-3">
+<label class="flex items-center gap-3 cursor-pointer group">
+<input checked="" class="rounded text-primary focus:ring-primary h-4 w-4 border-outline-variant" type="checkbox"/>
+<span class="text-sm font-medium group-hover:text-primary transition-colors">Todos</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="rounded text-primary focus:ring-primary h-4 w-4 border-outline-variant" type="checkbox"/>
+<span class="text-sm font-medium group-hover:text-primary transition-colors">Dr. Ricardo Silva</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="rounded text-primary focus:ring-primary h-4 w-4 border-outline-variant" type="checkbox"/>
+<span class="text-sm font-medium group-hover:text-primary transition-colors">Dra. Beatriz Costa</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="rounded text-primary focus:ring-primary h-4 w-4 border-outline-variant" type="checkbox"/>
+<span class="text-sm font-medium group-hover:text-primary transition-colors">Dr. Marcos Viana</span>
+</label>
+</div>
+</section>
+<!-- Status Filter -->
+<section>
+<h3 class="text-[11px] font-bold text-on-surface-variant tracking-[0.1em] uppercase mb-4">Status</h3>
+<div class="space-y-3">
+<label class="flex items-center gap-3 cursor-pointer group">
+<div class="w-2.5 h-2.5 rounded-full bg-error"></div>
+<span class="text-sm font-medium">Urgente</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<div class="w-2.5 h-2.5 rounded-full bg-[#f97316]"></div>
+<span class="text-sm font-medium">Atenção</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<div class="w-2.5 h-2.5 rounded-full bg-blue-500"></div>
+<span class="text-sm font-medium">Em Andamento</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<div class="w-2.5 h-2.5 rounded-full bg-emerald-500"></div>
+<span class="text-sm font-medium">Concluído</span>
+</label>
+</div>
+</section>
+<!-- AI Insights Panel -->
+<div class="bg-primary-container p-6 rounded-2xl text-on-primary-fixed relative overflow-hidden">
+<div class="relative z-10">
+<h4 class="font-headline font-bold text-lg text-white mb-2">Lexis Forecast</h4>
+<p class="text-xs text-on-primary-container leading-relaxed mb-4">Baseado em casos similares, há 85% de chance de antecipação do julgamento da Apelação Cível #882.</p>
+<button class="text-xs font-bold text-primary-fixed hover:text-white transition-colors flex items-center gap-1">
+                                Ver análise completa <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<div class="absolute -right-4 -bottom-4 opacity-10">
+<span class="material-symbols-outlined text-8xl" data-icon="psychology">psychology</span>
+</div>
+</div>
+</div>
+<!-- Calendar Content -->
+<div class="flex-1">
+<div class="grid grid-cols-7 gap-px bg-outline-variant/20 rounded-2xl overflow-hidden bg-white border border-outline-variant/30 shadow-sm">
+<!-- Calendar Header Days -->
+<div class="bg-surface-container-low py-4 text-center border-b border-outline-variant/20">
+<span class="text-[10px] font-bold text-on-surface-variant tracking-widest uppercase">Dom</span>
+</div>
+<div class="bg-surface-container-low py-4 text-center border-b border-outline-variant/20">
+<span class="text-[10px] font-bold text-on-surface-variant tracking-widest uppercase">Seg</span>
+</div>
+<div class="bg-surface-container-low py-4 text-center border-b border-outline-variant/20">
+<span class="text-[10px] font-bold text-on-surface-variant tracking-widest uppercase">Ter</span>
+</div>
+<div class="bg-surface-container-low py-4 text-center border-b border-outline-variant/20">
+<span class="text-[10px] font-bold text-on-surface-variant tracking-widest uppercase">Qua</span>
+</div>
+<div class="bg-surface-container-low py-4 text-center border-b border-outline-variant/20">
+<span class="text-[10px] font-bold text-on-surface-variant tracking-widest uppercase">Qui</span>
+</div>
+<div class="bg-surface-container-low py-4 text-center border-b border-outline-variant/20">
+<span class="text-[10px] font-bold text-on-surface-variant tracking-widest uppercase">Sex</span>
+</div>
+<div class="bg-surface-container-low py-4 text-center border-b border-outline-variant/20">
+<span class="text-[10px] font-bold text-on-surface-variant tracking-widest uppercase">Sáb</span>
+</div>
+<!-- Calendar Days Grid -->
+<!-- Row 1 (Partial) -->
+<div class="min-h-[160px] p-3 bg-surface-container-lowest opacity-40">
+<span class="text-xs font-medium text-outline">24</span>
+</div>
+<div class="min-h-[160px] p-3 bg-surface-container-lowest opacity-40">
+<span class="text-xs font-medium text-outline">25</span>
+</div>
+<div class="min-h-[160px] p-3 bg-surface-container-lowest opacity-40">
+<span class="text-xs font-medium text-outline">26</span>
+</div>
+<div class="min-h-[160px] p-3 bg-surface-container-lowest opacity-40">
+<span class="text-xs font-medium text-outline">27</span>
+</div>
+<div class="min-h-[160px] p-3 bg-surface-container-lowest opacity-40">
+<span class="text-xs font-medium text-outline">28</span>
+</div>
+<div class="min-h-[160px] p-3 bg-surface-container-lowest opacity-40">
+<span class="text-xs font-medium text-outline">29</span>
+</div>
+<div class="min-h-[160px] p-3 bg-surface-container-lowest opacity-40">
+<span class="text-xs font-medium text-outline">30</span>
+</div>
+<!-- Row 2 (October Start) -->
+<div class="min-h-[160px] p-3 bg-white border-r border-b border-outline-variant/10">
+<span class="text-xs font-bold text-primary">1</span>
+</div>
+<div class="min-h-[160px] p-3 bg-white border-r border-b border-outline-variant/10">
+<span class="text-xs font-bold text-primary">2</span>
+<div class="mt-2 space-y-2">
+<div class="p-2 bg-error/10 border-l-4 border-error rounded-sm">
+<p class="text-[10px] font-bold text-error leading-none mb-1">AUDIÊNCIA</p>
+<p class="text-[11px] font-bold text-on-surface truncate">Réu: João de Deus</p>
+</div>
+</div>
+</div>
+<div class="min-h-[160px] p-3 bg-white border-r border-b border-outline-variant/10">
+<span class="text-xs font-bold text-primary">3</span>
+</div>
+<div class="min-h-[160px] p-3 bg-white border-r border-b border-outline-variant/10">
+<span class="text-xs font-bold text-primary">4</span>
+<div class="mt-2 space-y-2">
+<div class="p-2 bg-blue-500/10 border-l-4 border-blue-500 rounded-sm">
+<p class="text-[10px] font-bold text-blue-600 leading-none mb-1">REUNIÃO</p>
+<p class="text-[11px] font-bold text-on-surface truncate">Conselho Jurídico</p>
+</div>
+</div>
+</div>
+<div class="min-h-[160px] p-3 bg-white border-r border-b border-outline-variant/10">
+<span class="text-xs font-bold text-primary">5</span>
+<div class="mt-2 space-y-2">
+<div class="p-2 bg-[#f97316]/10 border-l-4 border-[#f97316] rounded-sm">
+<p class="text-[10px] font-bold text-[#c2410c] leading-none mb-1">PRAZO</p>
+<p class="text-[11px] font-bold text-on-surface truncate">Contestação #441</p>
+</div>
+</div>
+</div>
+<div class="min-h-[160px] p-3 bg-white border-r border-b border-outline-variant/10">
+<span class="text-xs font-bold text-primary">6</span>
+</div>
+<div class="min-h-[160px] p-3 bg-white border-b border-outline-variant/10">
+<span class="text-xs font-bold text-primary">7</span>
+</div>
+<!-- Row 3 (Current Week Focus) -->
+<div class="min-h-[160px] p-3 bg-white border-r border-b border-outline-variant/10">
+<span class="text-xs font-bold text-primary">8</span>
+</div>
+<div class="min-h-[160px] p-3 bg-surface-container-low border-r border-b border-primary/20 ring-1 ring-primary/10 relative">
+<span class="text-xs font-black text-primary">9</span>
+<div class="mt-2 space-y-2">
+<div class="p-2 bg-error border-l-4 border-primary rounded-sm shadow-md">
+<p class="text-[10px] font-black text-white leading-none mb-1">CRÍTICO</p>
+<p class="text-[11px] font-bold text-white truncate">Embargos de Declaração</p>
+<div class="mt-2 flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px] text-white" data-icon="schedule">schedule</span>
+<span class="text-[10px] text-white/90">Até 23:59</span>
+</div>
+</div>
+<div class="p-2 bg-emerald-500/10 border-l-4 border-emerald-500 rounded-sm">
+<p class="text-[10px] font-bold text-emerald-600 leading-none mb-1">OK</p>
+<p class="text-[11px] font-bold text-on-surface/50 line-through truncate">Parecer Técnico #12</p>
+</div>
+</div>
+</div>
+<div class="min-h-[160px] p-3 bg-white border-r border-b border-outline-variant/10">
+<span class="text-xs font-bold text-primary">10</span>
+</div>
+<div class="min-h-[160px] p-3 bg-white border-r border-b border-outline-variant/10">
+<span class="text-xs font-bold text-primary">11</span>
+<div class="mt-2 space-y-2">
+<div class="p-2 bg-blue-500/10 border-l-4 border-blue-500 rounded-sm">
+<p class="text-[10px] font-bold text-blue-600 leading-none mb-1">VISITA</p>
+<p class="text-[11px] font-bold text-on-surface truncate">Presídio Central</p>
+</div>
+</div>
+</div>
+<div class="min-h-[160px] p-3 bg-white border-r border-b border-outline-variant/10">
+<span class="text-xs font-bold text-primary">12</span>
+</div>
+<div class="min-h-[160px] p-3 bg-white border-r border-b border-outline-variant/10">
+<span class="text-xs font-bold text-primary">13</span>
+<div class="mt-2 space-y-2">
+<div class="p-2 bg-[#f97316]/10 border-l-4 border-[#f97316] rounded-sm">
+<p class="text-[10px] font-bold text-[#c2410c] leading-none mb-1">ALERTA</p>
+<p class="text-[11px] font-bold text-on-surface truncate">Memoriais Finais</p>
+</div>
+</div>
+</div>
+<div class="min-h-[160px] p-3 bg-white border-b border-outline-variant/10">
+<span class="text-xs font-bold text-primary">14</span>
+</div>
+<!-- Row 4 -->
+<div class="min-h-[160px] p-3 bg-white border-r border-outline-variant/10">
+<span class="text-xs font-bold text-primary">15</span>
+</div>
+<div class="min-h-[160px] p-3 bg-white border-r border-outline-variant/10">
+<span class="text-xs font-bold text-primary">16</span>
+</div>
+<div class="min-h-[160px] p-3 bg-white border-r border-outline-variant/10">
+<span class="text-xs font-bold text-primary">17</span>
+<div class="mt-2 space-y-2">
+<div class="p-2 bg-blue-500/10 border-l-4 border-blue-500 rounded-sm">
+<p class="text-[10px] font-bold text-blue-600 leading-none mb-1">WEBINAR</p>
+<p class="text-[11px] font-bold text-on-surface truncate">Direito Digital</p>
+</div>
+</div>
+</div>
+<div class="min-h-[160px] p-3 bg-white border-r border-outline-variant/10">
+<span class="text-xs font-bold text-primary">18</span>
+</div>
+<div class="min-h-[160px] p-3 bg-white border-r border-outline-variant/10">
+<span class="text-xs font-bold text-primary">19</span>
+</div>
+<div class="min-h-[160px] p-3 bg-white border-r border-outline-variant/10">
+<span class="text-xs font-bold text-primary">20</span>
+<div class="mt-2 space-y-2">
+<div class="p-2 bg-error/10 border-l-4 border-error rounded-sm">
+<p class="text-[10px] font-bold text-error leading-none mb-1">PRAZO</p>
+<p class="text-[11px] font-bold text-on-surface truncate">Recurso Especial</p>
+</div>
+</div>
+</div>
+<div class="min-h-[160px] p-3 bg-white border-outline-variant/10">
+<span class="text-xs font-bold text-primary">21</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Urgent Task Footer Bar (Glassmorphism) -->
+<div class="fixed bottom-8 right-12 left-[340px] bg-white/80 backdrop-blur-xl border border-white/50 shadow-2xl rounded-2xl p-6 flex items-center justify-between z-10">
+<div class="flex items-center gap-6">
+<div class="h-12 w-12 rounded-full bg-error/10 flex items-center justify-center text-error">
+<span class="material-symbols-outlined" data-icon="warning" style="font-variation-settings: 'FILL' 1;">warning</span>
+</div>
+<div>
+<h4 class="font-bold text-primary">Próximo Compromisso Crítico</h4>
+<p class="text-sm text-on-surface-variant">Embargos de Declaração - Caso: TecnoMundo S.A vs União</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="text-right">
+<p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Tempo Restante</p>
+<p class="text-xl font-black text-error">04h 32min</p>
+</div>
+<button class="bg-primary text-white px-8 py-3 rounded-lg font-bold text-sm hover:opacity-90 transition-all">Abrir Caso</button>
+</div>
+</div>
+</div>
+</main>
+</body></html>

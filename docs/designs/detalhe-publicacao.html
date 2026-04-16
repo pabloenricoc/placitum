@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-on-surface": "#eff1f3",
+                    "on-secondary-fixed": "#0d1c2e",
+                    "primary-fixed-dim": "#aec7f6",
+                    "surface-container-high": "#e6e8ea",
+                    "secondary": "#515f74",
+                    "secondary-container": "#d5e3fc",
+                    "error": "#ba1a1a",
+                    "on-secondary-container": "#57657a",
+                    "on-primary-fixed": "#001b3d",
+                    "secondary-fixed": "#d5e3fc",
+                    "surface-variant": "#e0e3e5",
+                    "surface-tint": "#465f88",
+                    "tertiary": "#10002f",
+                    "primary-container": "#002147",
+                    "on-tertiary-fixed": "#25005a",
+                    "primary-fixed": "#d6e3ff",
+                    "inverse-surface": "#2d3133",
+                    "surface-dim": "#d8dadc",
+                    "on-primary": "#ffffff",
+                    "tertiary-fixed-dim": "#d2bbff",
+                    "primary": "#000a1e",
+                    "on-surface-variant": "#44474e",
+                    "on-error-container": "#93000a",
+                    "on-background": "#191c1e",
+                    "outline": "#74777f",
+                    "surface": "#f7f9fb",
+                    "on-surface": "#191c1e",
+                    "tertiary-fixed": "#eaddff",
+                    "surface-container": "#eceef0",
+                    "on-tertiary-fixed-variant": "#5a00c6",
+                    "on-primary-container": "#708ab5",
+                    "on-secondary-fixed-variant": "#3a485b",
+                    "error-container": "#ffdad6",
+                    "surface-container-highest": "#e0e3e5",
+                    "outline-variant": "#c4c6cf",
+                    "on-secondary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-low": "#f2f4f6",
+                    "secondary-fixed-dim": "#b9c7df",
+                    "on-error": "#ffffff",
+                    "tertiary-container": "#2c0068",
+                    "surface-bright": "#f7f9fb",
+                    "on-primary-fixed-variant": "#2d476f",
+                    "on-tertiary-container": "#9d6bff",
+                    "inverse-primary": "#aec7f6",
+                    "on-tertiary": "#ffffff",
+                    "background": "#f7f9fb"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface antialiased overflow-hidden">
+<!-- SideNavBar Integration -->
+<aside class="fixed left-0 top-0 bottom-0 flex flex-col py-8 h-screen w-64 bg-slate-50 border-none z-20">
+<div class="px-6 mb-10">
+<h1 class="text-lg font-bold tracking-tighter text-blue-950">Lexis AI</h1>
+<p class="text-[10px] text-slate-400 uppercase tracking-widest font-bold">Architectural Intelligence</p>
+</div>
+<nav class="flex-1 flex flex-col gap-1 px-3">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-slate-100 transition-colors duration-200 font-['Plus_Jakarta_Sans'] font-medium tracking-tight text-sm rounded-lg" href="#">
+<span class="material-symbols-outlined">dashboard</span> Dashboard
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-blue-950 font-bold border-l-4 border-blue-950 bg-white transition-all font-['Plus_Jakarta_Sans'] tracking-tight text-sm" href="#">
+<span class="material-symbols-outlined">description</span> Publications
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-slate-100 transition-colors duration-200 font-['Plus_Jakarta_Sans'] font-medium tracking-tight text-sm rounded-lg" href="#">
+<span class="material-symbols-outlined">calendar_today</span> Agenda
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-slate-100 transition-colors duration-200 font-['Plus_Jakarta_Sans'] font-medium tracking-tight text-sm rounded-lg" href="#">
+<span class="material-symbols-outlined">article</span> Pieces
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-slate-100 transition-colors duration-200 font-['Plus_Jakarta_Sans'] font-medium tracking-tight text-sm rounded-lg" href="#">
+<span class="material-symbols-outlined">gavel</span> Processes
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-slate-100 transition-colors duration-200 font-['Plus_Jakarta_Sans'] font-medium tracking-tight text-sm rounded-lg" href="#">
+<span class="material-symbols-outlined">settings</span> Settings
+            </a>
+</nav>
+<div class="mt-auto px-3 border-t border-slate-200/50 pt-4">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-slate-100 transition-colors duration-200 font-['Plus_Jakarta_Sans'] font-medium tracking-tight text-sm rounded-lg" href="#">
+<span class="material-symbols-outlined">help</span> Support
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-slate-100 transition-colors duration-200 font-['Plus_Jakarta_Sans'] font-medium tracking-tight text-sm rounded-lg" href="#">
+<span class="material-symbols-outlined">logout</span> Sign Out
+            </a>
+</div>
+</aside>
+<!-- TopNavBar Integration -->
+<header class="fixed top-0 right-0 left-64 z-10 flex justify-between items-center px-12 h-16 bg-white border-none">
+<div class="flex items-center bg-surface-container-low rounded-lg px-4 py-2 w-96">
+<span class="material-symbols-outlined text-outline text-xl">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm font-medium placeholder-outline ml-2 w-full" placeholder="Search across cases..." type="text"/>
+</div>
+<div class="flex items-center gap-6">
+<button class="flex items-center gap-2 px-5 py-2 bg-primary text-on-primary rounded-lg text-sm font-semibold hover:opacity-90 transition-all">
+<span class="material-symbols-outlined text-[20px]">add</span> Create New
+            </button>
+<div class="flex items-center gap-4 text-on-surface-variant">
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors">notifications</span>
+<div class="h-8 w-8 rounded-full overflow-hidden border border-outline-variant">
+<img class="h-full w-full object-cover" data-alt="professional male portrait for legal user profile high-end office lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAA8DjfvAfVj7007qgPIYYSMKvWtOG_zygLi37h4ORclBuLwN1vzYcWUOBFKz8tG7dsO2gmZoWfh_jJ0bSe9sHmkdhK7iOKebbzuikgd9_nKKxGJYaw5wp3CsneV3tbvUnQtYIfrUwx3l81iRmy-H5MxfSc-lsi8oj4Sb7nv7QMIynbbyE4HGP3M-8THaefMGlJ7hRBqsvW-pfGwbwCpYmpmmhdXo7-_5gg0fFyHX7EwIgmQtaavmtntnAzUVRr5Kg-BzzvkM9m7urF"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas: 3-Column Layout -->
+<main class="ml-64 pt-16 h-screen flex">
+<!-- Column 1: Texto Original da Publicação -->
+<section class="w-1/4 h-full bg-surface-container-low overflow-y-auto px-8 py-10 flex flex-col gap-6">
+<div class="space-y-1">
+<span class="text-[10px] font-bold text-on-surface-variant tracking-[0.1em] uppercase">Diário Oficial • Processo 102394/23</span>
+<h2 class="text-xl font-bold text-primary tracking-tight">Publicação Original</h2>
+</div>
+<div class="bg-white p-6 rounded-lg shadow-sm text-sm leading-relaxed text-on-surface/80 space-y-4">
+<p><strong>RECORRENTE:</strong> CONSTRUTORA ALFA LTDA.</p>
+<p><strong>RECORRIDO:</strong> JOÃO DOS SANTOS SILVA.</p>
+<p><strong>RELATOR:</strong> DES. MARCO AURÉLIO REGO.</p>
+<p class="pt-2">Vistos, relatados e discutidos estes autos de Recurso Ordinário em que as partes acima qualificadas figuram como recorrente e recorrido, respectivamente. Decido:</p>
+<div class="bg-tertiary-container/10 border-l-4 border-tertiary p-3 my-4">
+<p class="text-on-surface italic">"...fica a parte intimada para apresentar contrarrazões ao recurso ordinário interposto pela reclamada, no <span class="bg-primary/10 font-bold px-1 rounded">prazo de 8 (oito) dias</span>, sob pena de preclusão e julgamento imediato da lide..."</p>
+</div>
+<p>As razões recursais versam sobre horas extras, adicional de periculosidade e multa do Art. 477 da CLT. Intime-se o recorrido via DOE.</p>
+<div class="pt-6 border-t border-outline-variant/30 text-xs text-outline italic">
+                    Publicado em: 24/10/2023 - Caderno Jurídico 1.
+                </div>
+</div>
+</section>
+<!-- Column 2: Análise da IA -->
+<section class="w-1/3 h-full bg-surface-container overflow-y-auto px-6 py-10">
+<div class="sticky top-0 space-y-6">
+<div class="flex items-center gap-2 text-tertiary">
+<span class="material-symbols-outlined fill" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<h2 class="text-xl font-bold tracking-tight">Análise Digital Jurist</h2>
+</div>
+<!-- Bento Card: Deadline Matrix -->
+<div class="bg-surface-container-lowest p-6 rounded-xl space-y-6 shadow-[0_4px_24px_rgba(0,0,0,0.04)] border border-white">
+<div class="grid grid-cols-2 gap-4">
+<div class="p-4 bg-surface-container rounded-lg border-l-4 border-primary">
+<p class="text-[10px] font-bold text-on-surface-variant tracking-wider uppercase">Prazo Legal</p>
+<p class="text-2xl font-bold text-primary">08 Dias</p>
+</div>
+<div class="p-4 bg-surface-container rounded-lg border-l-4 border-error">
+<p class="text-[10px] font-bold text-on-surface-variant tracking-wider uppercase">Data Limite</p>
+<p class="text-2xl font-bold text-error">01 Nov 23</p>
+</div>
+</div>
+<div class="space-y-3">
+<h3 class="text-xs font-bold text-on-surface-variant uppercase tracking-widest">Sugestão de Ação</h3>
+<div class="bg-tertiary-container/5 rounded-lg p-4 border border-tertiary-container/20">
+<p class="text-sm text-on-surface leading-snug">
+                                Elaboração de <span class="font-bold">Contrarrazões ao Recurso Ordinário</span> com foco em refutar as teses de exclusão de periculosidade e manutenção da jornada extraordinária comprovada em prova testemunhal.
+                            </p>
+</div>
+</div>
+<div class="flex flex-col gap-2 pt-4">
+<button class="w-full py-3 bg-primary text-on-primary font-bold rounded-lg flex items-center justify-center gap-2 hover:opacity-90 transition-all">
+<span class="material-symbols-outlined text-[20px]">edit_document</span> Gerar Peça Completa
+                        </button>
+<button class="w-full py-3 bg-surface-container-highest text-on-surface font-semibold rounded-lg flex items-center justify-center gap-2 hover:bg-surface-variant transition-all">
+<span class="material-symbols-outlined text-[20px]">calendar_add_on</span> Agendar na Agenda
+                        </button>
+</div>
+</div>
+<!-- Confidence Score -->
+<div class="bg-tertiary/5 p-4 rounded-xl flex items-center justify-between border border-tertiary/10">
+<div class="flex items-center gap-3">
+<div class="h-10 w-10 rounded-full bg-tertiary flex items-center justify-center text-on-tertiary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<div>
+<p class="text-xs font-bold text-tertiary uppercase">Confiança da IA</p>
+<p class="text-sm font-medium">98% Precisão de Leitura</p>
+</div>
+</div>
+<div class="h-1.5 w-16 bg-outline-variant/30 rounded-full overflow-hidden">
+<div class="h-full w-[98%] bg-tertiary rounded-full"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Column 3: Editor de Rascunho -->
+<section class="flex-1 h-full bg-white flex flex-col relative">
+<!-- Editor Toolbar -->
+<div class="h-14 border-b border-surface-container flex items-center justify-between px-6 bg-surface-container-lowest/80 backdrop-blur-md sticky top-0 z-10">
+<div class="flex items-center gap-1">
+<button class="p-2 hover:bg-surface-container rounded transition-colors"><span class="material-symbols-outlined text-[20px]">format_bold</span></button>
+<button class="p-2 hover:bg-surface-container rounded transition-colors"><span class="material-symbols-outlined text-[20px]">format_italic</span></button>
+<button class="p-2 hover:bg-surface-container rounded transition-colors"><span class="material-symbols-outlined text-[20px]">format_list_bulleted</span></button>
+<div class="h-6 w-px bg-outline-variant/30 mx-2"></div>
+<button class="p-2 hover:bg-surface-container rounded transition-colors"><span class="material-symbols-outlined text-[20px]">format_align_left</span></button>
+<button class="p-2 hover:bg-surface-container rounded transition-colors"><span class="material-symbols-outlined text-[20px]">format_align_center</span></button>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex items-center gap-1 text-[11px] font-bold text-tertiary-container uppercase tracking-wider bg-tertiary/5 px-3 py-1.5 rounded-full border border-tertiary/10 hover:bg-tertiary/10 transition-all">
+<span class="material-symbols-outlined text-[16px]">refresh</span> Regenerar
+                    </button>
+<button class="text-[11px] font-bold text-on-surface-variant uppercase tracking-wider px-3 py-1.5 hover:text-primary transition-colors">Salvar Rascunho</button>
+</div>
+</div>
+<!-- Editor Workspace -->
+<div class="flex-1 overflow-y-auto px-12 py-16 max-w-4xl mx-auto w-full">
+<div class="space-y-12 text-on-surface font-['Inter'] leading-relaxed">
+<div class="text-right uppercase font-semibold text-sm">
+                        Excelentíssimo Senhor Doutor Desembargador Relator da<br/>
+                        99ª Turma do Tribunal Regional do Trabalho da 00ª Região
+                    </div>
+<div class="text-center font-bold text-lg underline decoration-primary/30 underline-offset-8">
+                        Processo nº 102394-00.2023.5.00.0000
+                    </div>
+<div>
+<p><span class="font-bold">JOÃO DOS SANTOS SILVA</span>, já devidamente qualificado nos autos do processo em epígrafe, vem, mui respeitosamente, à presença de Vossa Excelência, por intermédio de seu advogado signatário, apresentar:</p>
+<h2 class="text-center font-extrabold text-xl my-8 tracking-tight">CONTRARRAZÕES AO RECURSO ORDINÁRIO</h2>
+<p>interposto pela <span class="font-bold">CONSTRUTORA ALFA LTDA.</span>, o que faz com esteio nas razões fáticas e de direito a seguir expostas.</p>
+</div>
+<div class="space-y-6">
+<h3 class="font-bold text-primary uppercase text-sm tracking-widest border-l-2 border-primary pl-4">1. Do Adicional de Periculosidade</h3>
+<p>Diferente do que alega a Recorrente, o laudo pericial (id: 45f2b) foi conclusivo no sentido de que o Recorrido mantinha contato permanente com inflamáveis em condições de risco acentuado. A tentativa de desqualificar o expert judicial não encontra amparo fático...</p>
+</div>
+<div class="space-y-6">
+<h3 class="font-bold text-primary uppercase text-sm tracking-widest border-l-2 border-primary pl-4">2. Das Horas Extras</h3>
+<p>Os controles de ponto acostados pela defesa restaram desconstituídos pela prova oral produzida. A testemunha obreira foi uníssona em afirmar que o registro biométrico ocorria após o término efetivo da jornada...</p>
+</div>
+</div>
+</div>
+<!-- AI Disclaimer Sticky -->
+<div class="px-8 py-4 bg-surface-container-low/50 backdrop-blur-md border-t border-surface-container flex items-center justify-between">
+<div class="flex items-center gap-2 text-[10px] text-on-surface-variant font-medium">
+<span class="material-symbols-outlined text-[16px] text-tertiary">info</span>
+                    Este documento foi assistido por Lexis AI. Revise todas as citações e jurisprudências antes do protocolo.
+                </div>
+<div class="flex items-center gap-2">
+<span class="h-2 w-2 rounded-full bg-tertiary animate-pulse"></span>
+<span class="text-[10px] font-bold text-tertiary uppercase">AI Ativa</span>
+</div>
+</div>
+</section>
+</main>
+</body></html>

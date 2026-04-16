@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "inverse-on-surface": "#eff1f3",
+                "on-secondary-fixed": "#0d1c2e",
+                "primary-fixed-dim": "#aec7f6",
+                "surface-container-high": "#e6e8ea",
+                "secondary": "#515f74",
+                "secondary-container": "#d5e3fc",
+                "error": "#ba1a1a",
+                "on-secondary-container": "#57657a",
+                "on-primary-fixed": "#001b3d",
+                "secondary-fixed": "#d5e3fc",
+                "surface-variant": "#e0e3e5",
+                "surface-tint": "#465f88",
+                "tertiary": "#10002f",
+                "primary-container": "#002147",
+                "on-tertiary-fixed": "#25005a",
+                "primary-fixed": "#d6e3ff",
+                "inverse-surface": "#2d3133",
+                "surface-dim": "#d8dadc",
+                "on-primary": "#ffffff",
+                "tertiary-fixed-dim": "#d2bbff",
+                "primary": "#000a1e",
+                "on-surface-variant": "#44474e",
+                "on-error-container": "#93000a",
+                "on-background": "#191c1e",
+                "outline": "#74777f",
+                "surface": "#f7f9fb",
+                "on-surface": "#191c1e",
+                "tertiary-fixed": "#eaddff",
+                "surface-container": "#eceef0",
+                "on-tertiary-fixed-variant": "#5a00c6",
+                "on-primary-container": "#708ab5",
+                "on-secondary-fixed-variant": "#3a485b",
+                "error-container": "#ffdad6",
+                "surface-container-highest": "#e0e3e5",
+                "outline-variant": "#c4c6cf",
+                "on-secondary": "#ffffff",
+                "surface-container-lowest": "#ffffff",
+                "surface-container-low": "#f2f4f6",
+                "secondary-fixed-dim": "#b9c7df",
+                "on-error": "#ffffff",
+                "tertiary-container": "#2c0068",
+                "surface-bright": "#f7f9fb",
+                "on-primary-fixed-variant": "#2d476f",
+                "on-tertiary-container": "#9d6bff",
+                "inverse-primary": "#aec7f6",
+                "on-tertiary": "#ffffff",
+                "background": "#f7f9fb"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+            },
+            "fontFamily": {
+                "headline": ["Plus Jakarta Sans"],
+                "body": ["Inter"],
+                "label": ["Inter"]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+    </style>
+</head>
+<body class="bg-background text-on-background">
+<!-- SideNavBar (Shared Component) -->
+<aside class="fixed left-0 top-0 bottom-0 flex flex-col py-8 h-screen w-64 bg-slate-50 dark:bg-slate-900 border-none font-['Plus_Jakarta_Sans'] font-medium tracking-tight text-sm z-20">
+<div class="px-6 mb-10 flex items-center gap-3">
+<div class="w-8 h-8 bg-primary rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-lg">gavel</span>
+</div>
+<div>
+<h1 class="text-lg font-bold tracking-tighter text-blue-950 dark:text-white leading-none">Lexis AI</h1>
+<p class="text-[10px] text-slate-500 uppercase tracking-widest font-bold">Architectural Intelligence</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<div class="px-4 mb-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest">Workspace</div>
+<a class="flex items-center px-6 py-3 text-slate-500 dark:text-slate-400 hover:text-blue-900 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="dashboard">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center px-6 py-3 text-slate-500 dark:text-slate-400 hover:text-blue-900 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="description">description</span>
+                Publications
+            </a>
+<a class="flex items-center px-6 py-3 text-slate-500 dark:text-slate-400 hover:text-blue-900 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="calendar_today">calendar_today</span>
+                Agenda
+            </a>
+<a class="flex items-center px-6 py-3 text-slate-500 dark:text-slate-400 hover:text-blue-900 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="article">article</span>
+                Pieces
+            </a>
+<a class="flex items-center px-6 py-3 text-slate-500 dark:text-slate-400 hover:text-blue-900 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="gavel">gavel</span>
+                Processes
+            </a>
+<a class="flex items-center px-6 py-3 text-blue-950 dark:text-white font-bold border-l-4 border-blue-950 dark:border-blue-400 bg-white dark:bg-blue-950/30 transition-all opacity-90" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="settings">settings</span>
+                Settings
+            </a>
+</nav>
+<div class="px-6 mt-auto space-y-1">
+<button class="w-full bg-primary text-on-primary py-3 px-4 rounded-lg font-bold text-xs mb-6 hover:opacity-90 transition-all">
+                New Case
+            </button>
+<a class="flex items-center py-2 text-slate-500 dark:text-slate-400 hover:text-blue-900 text-xs" href="#">
+<span class="material-symbols-outlined mr-3 text-sm" data-icon="help">help</span>
+                Support
+            </a>
+<a class="flex items-center py-2 text-slate-500 dark:text-slate-400 hover:text-blue-900 text-xs" href="#">
+<span class="material-symbols-outlined mr-3 text-sm" data-icon="logout">logout</span>
+                Sign Out
+            </a>
+</div>
+</aside>
+<!-- TopNavBar (Shared Component) -->
+<header class="fixed top-0 right-0 left-64 z-10 flex justify-between items-center h-16 px-12 bg-white dark:bg-slate-950 border-none font-['Inter'] font-semibold text-sm">
+<div class="flex items-center flex-1 max-w-xl">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">search</span>
+<input class="w-full bg-surface-container-low border-none rounded-lg pl-10 pr-4 py-2 text-xs focus:ring-1 focus:ring-blue-900/10 dark:focus:ring-blue-100/10 outline-none placeholder:text-slate-400" placeholder="Search case law, documents, or team members..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<button class="bg-primary text-on-primary px-4 py-2 rounded font-bold text-xs hover:opacity-90 transition-all">
+                Create New
+            </button>
+<div class="flex items-center gap-4 text-slate-400">
+<span class="material-symbols-outlined cursor-pointer hover:text-blue-700 transition-colors" data-icon="notifications">notifications</span>
+<div class="h-8 w-8 rounded-full bg-slate-200 overflow-hidden border-2 border-surface-container">
+<img alt="User Profile Profile" class="w-full h-full object-cover" data-alt="professional portrait of a senior legal consultant with a neutral expression against a minimal grey background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7u53BaDSFJ_g4NzDSnxlTTSKWuDWSAJTsN8eCwQAoPCp1Fw8VFghGjOI3NGCa3jjG9nSd0TAsRe36Wb08CWoUtyZnsZXmINHBA8bLkVR9lP2H401P1qztnAL2Aw744JZgXFAh24_-KqagxQKlcUHclR17Bspoo97CpTzmSnnsdWBzvoxl8yrYffudJZ67PxxTohnqi7CMT1pQNR4z9N2fmc6ADlO7znig6xyfemmbCT74zwtLTixDPH0LiCxD22UkqcE-jk6bYlpD"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-16 min-h-screen bg-surface">
+<div class="px-12 py-10 max-w-7xl mx-auto">
+<!-- Page Header (Editorial Style) -->
+<header class="mb-12 flex items-baseline gap-8">
+<h2 class="font-headline text-[3.5rem] font-bold tracking-tight text-primary leading-none">Settings.</h2>
+<div class="h-1 flex-1 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full w-1/4 bg-primary"></div>
+</div>
+<span class="font-label text-[0.75rem] font-bold text-on-surface-variant tracking-[0.1em] uppercase">Office Architecture</span>
+</header>
+<!-- Settings Layout: Sidebar + Content -->
+<div class="flex gap-12">
+<!-- Settings Navigation -->
+<aside class="w-64 flex-shrink-0">
+<nav class="space-y-4">
+<a class="group flex flex-col items-start p-4 bg-surface-container-lowest rounded-xl border-l-4 border-primary transition-all" href="#">
+<span class="font-label text-[10px] font-extrabold tracking-widest text-primary uppercase mb-1">Human Capital</span>
+<span class="text-sm font-semibold text-primary">Equipe</span>
+</a>
+<a class="group flex flex-col items-start p-4 hover:bg-surface-container-high rounded-xl transition-all" href="#">
+<span class="font-label text-[10px] font-bold tracking-widest text-on-surface-variant uppercase mb-1">Intelligence</span>
+<span class="text-sm font-semibold text-on-surface-variant group-hover:text-primary transition-colors">Fontes de Dados</span>
+</a>
+<a class="group flex flex-col items-start p-4 hover:bg-surface-container-high rounded-xl transition-all" href="#">
+<span class="font-label text-[10px] font-bold tracking-widest text-on-surface-variant uppercase mb-1">Jurisprudence</span>
+<span class="text-sm font-semibold text-on-surface-variant group-hover:text-primary transition-colors">Regras de Negócio</span>
+</a>
+<a class="group flex flex-col items-start p-4 hover:bg-surface-container-high rounded-xl transition-all" href="#">
+<span class="font-label text-[10px] font-bold tracking-widest text-on-surface-variant uppercase mb-1">Communication</span>
+<span class="text-sm font-semibold text-on-surface-variant group-hover:text-primary transition-colors">Notificações</span>
+</a>
+<a class="group flex flex-col items-start p-4 hover:bg-surface-container-high rounded-xl transition-all" href="#">
+<span class="font-label text-[10px] font-bold tracking-widest text-on-surface-variant uppercase mb-1">Asset Library</span>
+<span class="text-sm font-semibold text-on-surface-variant group-hover:text-primary transition-colors">Templates de Petição</span>
+</a>
+</nav>
+<!-- Office Summary Glassmorphism Card -->
+<div class="mt-12 p-6 rounded-2xl bg-surface-container-lowest/80 backdrop-blur-xl border border-white/20 shadow-sm">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-tertiary text-lg" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<h4 class="font-headline text-xs font-bold text-primary">AI Compliance</h4>
+</div>
+<p class="text-[11px] leading-relaxed text-on-surface-variant mb-4">Your office's data architecture is 82% optimized for high-speed litigation response.</p>
+<div class="h-1 bg-surface-container rounded-full mb-1">
+<div class="h-full w-[82%] bg-tertiary rounded-full"></div>
+</div>
+<span class="text-[10px] font-bold text-tertiary">Optimization Priority: High</span>
+</div>
+</aside>
+<!-- Settings Workspace -->
+<section class="flex-1 space-y-8">
+<!-- Team Management Section -->
+<div class="bg-surface-container-lowest rounded-sm p-8">
+<div class="flex justify-between items-end mb-8">
+<div>
+<h3 class="font-headline text-xl font-semibold text-primary mb-1">Gestão de Equipe</h3>
+<p class="text-sm text-on-surface-variant">Manage credentials, access levels and architectural permissions.</p>
+</div>
+<button class="bg-surface-container-highest px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-md hover:bg-surface-variant transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">add</span>
+                                Add Collaborator
+                            </button>
+</div>
+<!-- Data Table (No Border Rule) -->
+<div class="overflow-hidden">
+<table class="w-full text-left">
+<thead>
+<tr class="border-b border-outline-variant/15">
+<th class="py-4 font-label text-[10px] font-bold text-on-surface-variant uppercase tracking-[0.05em]">Name &amp; Identifier</th>
+<th class="py-4 font-label text-[10px] font-bold text-on-surface-variant uppercase tracking-[0.05em]">Structural Role</th>
+<th class="py-4 font-label text-[10px] font-bold text-on-surface-variant uppercase tracking-[0.05em]">Access Status</th>
+<th class="py-4 text-right"></th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<tr class="hover:bg-surface-container-high transition-colors group">
+<td class="py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex-shrink-0 overflow-hidden">
+<img alt="Team Member" class="w-full h-full object-cover" data-alt="close up headshot of a professional man in a dark navy suit with soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnUXQXbUPcprMViW6Wf6jMNEdyiNzfllAbf4nWc_FIB_9c_5tZsFBByXosF4ySc7XmDtV77ic_ltAIVtv4CnxpI2X_B4F9c32sxOY4S3b4e3FSxvkBf_FmlJt8uHESJNAM91GCYBAiGg9D8JvN40gjSgyAT5xrHVwV560PAcsuqV82_x4N9Pzno5QcPYm85FHdFr-S83czir7uRBVWZHby5XdRrhNRLzvRrX2EhwhAwOGP7HsD0Wizz7Qp6T4DwuXP5n5iHMVCi34T"/>
+</div>
+<div>
+<div class="text-sm font-semibold text-primary">Dr. Marco Aurélio</div>
+<div class="text-[11px] text-on-surface-variant">marco.aurelio@lexis.ai</div>
+</div>
+</div>
+</td>
+<td class="py-5">
+<span class="inline-flex items-center px-2 py-1 bg-primary-container text-on-primary-container text-[10px] font-bold uppercase tracking-wide rounded-sm">Principal Partner</span>
+</td>
+<td class="py-5">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-tertiary"></div>
+<span class="text-xs font-medium text-on-surface">Active</span>
+</div>
+</td>
+<td class="py-5 text-right">
+<button class="material-symbols-outlined text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity">more_vert</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-high transition-colors group">
+<td class="py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex-shrink-0 overflow-hidden">
+<img alt="Team Member" class="w-full h-full object-cover" data-alt="professional studio portrait of a woman with eyeglasses wearing a minimal white blouse looking confident" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAt_qQFhoAggPY34AUtVMcLsVMSZYJOmqqVmBpoEOExfuuuSCD2SXVi4yiTFZXEKh8Xf2dMUZWymJAxRiyH3QeLfr2hSP_hzqBkdqoNtLFB5oNSsfjuVPttHViEntPZrf3h4u-iEnB7OkHzP5dlOfn8LlofqZGUY83C0Wt7BRtquBwka8azmHp77b4p4runZ2QyrmlRgtSz3OiR5XN2bABR49QdpyCojG5WqDIeUREdG-PNCmGdwu5lJARR2OHH2rjSqS4owZj3YvE5"/>
+</div>
+<div>
+<div class="text-sm font-semibold text-primary">Dra. Sofia Mendes</div>
+<div class="text-[11px] text-on-surface-variant">sofia.mendes@lexis.ai</div>
+</div>
+</div>
+</td>
+<td class="py-5">
+<span class="inline-flex items-center px-2 py-1 bg-surface-container-highest text-on-surface-variant text-[10px] font-bold uppercase tracking-wide rounded-sm">Senior Associate</span>
+</td>
+<td class="py-5">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-tertiary"></div>
+<span class="text-xs font-medium text-on-surface">Active</span>
+</div>
+</td>
+<td class="py-5 text-right">
+<button class="material-symbols-outlined text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity">more_vert</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Config Form Section -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Left Pane: Branding & Info -->
+<div class="bg-surface-container-lowest rounded-sm p-8">
+<h3 class="font-headline text-lg font-semibold text-primary mb-6">Identidade do Escritório</h3>
+<div class="space-y-6">
+<div>
+<label class="font-label text-[10px] font-bold text-on-surface-variant uppercase tracking-widest block mb-2">Office Name</label>
+<input class="w-full bg-surface-container border-none rounded-lg p-3 text-sm font-medium focus:ring-1 focus:ring-primary/20 transition-all outline-none" type="text" value="Lexis AI Architectural Intelligence"/>
+</div>
+<div>
+<label class="font-label text-[10px] font-bold text-on-surface-variant uppercase tracking-widest block mb-2">OAB Registration (Corporate)</label>
+<input class="w-full bg-surface-container border-none rounded-lg p-3 text-sm font-medium focus:ring-1 focus:ring-primary/20 transition-all outline-none" placeholder="SP 000.000" type="text"/>
+</div>
+<div>
+<label class="font-label text-[10px] font-bold text-on-surface-variant uppercase tracking-widest block mb-2">Primary Domain</label>
+<div class="flex items-center bg-surface-container rounded-lg overflow-hidden">
+<span class="px-3 text-xs text-on-surface-variant font-bold border-r border-outline-variant/10">https://</span>
+<input class="flex-1 bg-transparent border-none p-3 text-sm font-medium focus:ring-0 outline-none" type="text" value="lexis.ai/office-alpha"/>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Pane: AI Agent Configuration -->
+<div class="bg-primary p-8 rounded-sm text-on-primary relative overflow-hidden">
+<!-- Visual Texture -->
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary-container blur-[80px] opacity-50"></div>
+<h3 class="font-headline text-lg font-semibold mb-6 relative z-10">Configuração do Assistente</h3>
+<div class="space-y-6 relative z-10">
+<div>
+<label class="font-label text-[10px] font-bold text-on-primary-container uppercase tracking-widest block mb-3">AI Personality Tone</label>
+<div class="flex gap-2">
+<button class="flex-1 py-2 px-3 rounded bg-on-primary text-primary text-[10px] font-bold uppercase tracking-wider">Formal/Academic</button>
+<button class="flex-1 py-2 px-3 rounded bg-primary-container text-on-primary-container text-[10px] font-bold uppercase tracking-wider border border-on-primary-container/20">Aggressive/Litigation</button>
+</div>
+</div>
+<div>
+<label class="font-label text-[10px] font-bold text-on-primary-container uppercase tracking-widest block mb-2">Data Ingestion Depth</label>
+<div class="flex justify-between items-center mb-1">
+<span class="text-[10px] text-on-primary-container uppercase font-bold">Standard</span>
+<span class="text-[10px] text-tertiary-fixed font-bold">Deep Neural</span>
+</div>
+<input class="w-full h-1 bg-primary-container rounded-lg appearance-none cursor-pointer accent-tertiary-fixed" type="range"/>
+</div>
+<div class="pt-4 border-t border-on-primary-container/20">
+<label class="flex items-center gap-3 cursor-pointer group">
+<div class="w-10 h-5 bg-primary-container rounded-full relative transition-colors group-hover:bg-primary-container/80">
+<div class="absolute right-1 top-1 w-3 h-3 bg-tertiary-fixed rounded-full shadow-sm"></div>
+</div>
+<span class="text-xs font-semibold">Enable Automatic Jurisprudence Synthesis</span>
+</label>
+</div>
+</div>
+<button class="mt-8 w-full bg-surface-container-lowest text-primary py-3 rounded-lg font-bold text-xs uppercase tracking-widest hover:opacity-90 transition-all">
+                                Update Neural Model
+                            </button>
+</div>
+</div>
+<!-- Footer Action Bar -->
+<div class="flex justify-end items-center gap-4 py-8 border-t border-outline-variant/10">
+<button class="text-on-surface-variant text-xs font-bold uppercase tracking-wider hover:text-primary transition-colors">Discard Changes</button>
+<button class="bg-primary text-on-primary px-8 py-3 rounded-lg text-xs font-bold uppercase tracking-widest shadow-xl shadow-primary/10">Save Global Settings</button>
+</div>
+</section>
+</div>
+</div>
+</main>
+</body></html>

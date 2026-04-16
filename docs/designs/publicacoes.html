@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-br"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-on-surface": "#eff1f3",
+                    "on-secondary-fixed": "#0d1c2e",
+                    "primary-fixed-dim": "#aec7f6",
+                    "surface-container-high": "#e6e8ea",
+                    "secondary": "#515f74",
+                    "secondary-container": "#d5e3fc",
+                    "error": "#ba1a1a",
+                    "on-secondary-container": "#57657a",
+                    "on-primary-fixed": "#001b3d",
+                    "secondary-fixed": "#d5e3fc",
+                    "surface-variant": "#e0e3e5",
+                    "surface-tint": "#465f88",
+                    "tertiary": "#10002f",
+                    "primary-container": "#002147",
+                    "on-tertiary-fixed": "#25005a",
+                    "primary-fixed": "#d6e3ff",
+                    "inverse-surface": "#2d3133",
+                    "surface-dim": "#d8dadc",
+                    "on-primary": "#ffffff",
+                    "tertiary-fixed-dim": "#d2bbff",
+                    "primary": "#000a1e",
+                    "on-surface-variant": "#44474e",
+                    "on-error-container": "#93000a",
+                    "on-background": "#191c1e",
+                    "outline": "#74777f",
+                    "surface": "#f7f9fb",
+                    "on-surface": "#191c1e",
+                    "tertiary-fixed": "#eaddff",
+                    "surface-container": "#eceef0",
+                    "on-tertiary-fixed-variant": "#5a00c6",
+                    "on-primary-container": "#708ab5",
+                    "on-secondary-fixed-variant": "#3a485b",
+                    "error-container": "#ffdad6",
+                    "surface-container-highest": "#e0e3e5",
+                    "outline-variant": "#c4c6cf",
+                    "on-secondary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-low": "#f2f4f6",
+                    "secondary-fixed-dim": "#b9c7df",
+                    "on-error": "#ffffff",
+                    "tertiary-container": "#2c0068",
+                    "surface-bright": "#f7f9fb",
+                    "on-primary-fixed-variant": "#2d476f",
+                    "on-tertiary-container": "#9d6bff",
+                    "inverse-primary": "#aec7f6",
+                    "on-tertiary": "#ffffff",
+                    "background": "#f7f9fb"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(24px);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface">
+<!-- SideNavBar Shell -->
+<aside class="fixed left-0 top-0 bottom-0 flex flex-col py-8 bg-slate-50 dark:bg-slate-900 h-screen w-64 border-r-0 z-20">
+<div class="px-6 mb-8">
+<h1 class="text-lg font-bold tracking-tighter text-blue-950 dark:text-white font-headline">Lexis AI</h1>
+<p class="text-[10px] uppercase tracking-[0.2em] text-on-primary-container font-semibold opacity-70">Architectural Intelligence</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center px-6 py-3 space-x-3 text-slate-500 hover:bg-slate-100 transition-colors duration-200 font-['Plus_Jakarta_Sans'] font-medium tracking-tight text-sm" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center px-6 py-3 space-x-3 text-blue-950 dark:text-white font-bold border-l-4 border-blue-950 dark:border-blue-400 bg-white dark:bg-blue-950/30 font-['Plus_Jakarta_Sans'] tracking-tight text-sm" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="description">description</span>
+<span>Publications</span>
+</a>
+<a class="flex items-center px-6 py-3 space-x-3 text-slate-500 hover:bg-slate-100 transition-colors duration-200 font-['Plus_Jakarta_Sans'] font-medium tracking-tight text-sm" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="calendar_today">calendar_today</span>
+<span>Agenda</span>
+</a>
+<a class="flex items-center px-6 py-3 space-x-3 text-slate-500 hover:bg-slate-100 transition-colors duration-200 font-['Plus_Jakarta_Sans'] font-medium tracking-tight text-sm" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="article">article</span>
+<span>Pieces</span>
+</a>
+<a class="flex items-center px-6 py-3 space-x-3 text-slate-500 hover:bg-slate-100 transition-colors duration-200 font-['Plus_Jakarta_Sans'] font-medium tracking-tight text-sm" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="gavel">gavel</span>
+<span>Processes</span>
+</a>
+<a class="flex items-center px-6 py-3 space-x-3 text-slate-500 hover:bg-slate-100 transition-colors duration-200 font-['Plus_Jakarta_Sans'] font-medium tracking-tight text-sm" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+<div class="px-6 mb-6">
+<button class="w-full py-3 bg-primary text-on-primary rounded-lg font-headline font-bold text-sm flex items-center justify-center space-x-2 shadow-lg shadow-primary-container/20">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+<span>New Case</span>
+</button>
+</div>
+<div class="mt-auto space-y-1">
+<a class="flex items-center px-6 py-2 space-x-3 text-slate-500 hover:bg-slate-100 transition-colors duration-200 font-['Plus_Jakarta_Sans'] font-medium tracking-tight text-sm" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="help">help</span>
+<span>Support</span>
+</a>
+<a class="flex items-center px-6 py-2 space-x-3 text-slate-500 hover:bg-slate-100 transition-colors duration-200 font-['Plus_Jakarta_Sans'] font-medium tracking-tight text-sm" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="logout">logout</span>
+<span>Sign Out</span>
+</a>
+</div>
+</aside>
+<!-- Main Shell -->
+<main class="ml-64 min-h-screen">
+<!-- TopNavBar Shell -->
+<header class="fixed top-0 right-0 left-64 z-10 h-16 flex justify-between items-center px-12 bg-white dark:bg-slate-950 font-['Inter'] font-semibold text-sm">
+<div class="flex items-center flex-1 max-w-xl">
+<div class="relative w-full group">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center text-outline pointer-events-none">
+<span class="material-symbols-outlined text-lg" data-icon="search">search</span>
+</span>
+<input class="block w-full pl-10 pr-3 py-2 bg-surface-container-low border-none rounded-lg focus:ring-1 focus:ring-blue-900/10 transition-all text-sm font-medium" placeholder="Search case, process, or party..." type="text"/>
+</div>
+</div>
+<div class="flex items-center space-x-6 ml-8">
+<button class="flex items-center space-x-2 px-4 py-2 bg-primary text-on-primary rounded-md font-bold text-sm">
+<span class="material-symbols-outlined text-lg" data-icon="add">add</span>
+<span>Create New</span>
+</button>
+<div class="flex items-center space-x-4">
+<button class="relative text-on-surface-variant hover:text-blue-700 transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-error rounded-full border-2 border-white"></span>
+</button>
+<div class="flex items-center space-x-3 pl-4 border-l border-outline-variant/30">
+<img class="w-8 h-8 rounded-full border border-outline-variant" data-alt="professional headshot of a male lawyer in a dark blue suit with a neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmfCCrO4obZzEZopq5W0MFPLovGh4457OMe_QZ9EsZ8Wq-n1h6M19pZY67zZ7TZikOU8qUjN3UpaK8fbEBAEiOtA9OK_29qqNYTlAkQOCkF_l7QnGFIaV09j0SM1dy1llpPWanZGNbWdYo_p7yY4Lw8GyuWW8GT1Ttx5KmbEztCOKJkzWLvF6ZbTI_EuvKBWMpD4n2VlyLX2_2V_7vorvzYMXaQz5tAEDtqTy6rtfhSSUSR18hVCclMc3aHACKkHuEROCaQ76vMNBH"/>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer" data-icon="account_circle">account_circle</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Page Content Canvas -->
+<div class="pt-24 pb-12 px-12">
+<!-- Page Header -->
+<div class="mb-10">
+<div class="flex justify-between items-end">
+<div>
+<h2 class="text-[3.5rem] font-headline font-bold text-primary tracking-[-0.04em] leading-tight">Publicações</h2>
+<p class="text-on-surface-variant font-medium mt-2 max-w-2xl">Gestão inteligente de prazos e intimações processuais através de análise preditiva Juris Optic.</p>
+</div>
+<div class="flex space-x-3">
+<button class="px-4 py-2 bg-surface-container-highest text-on-surface rounded-md text-sm font-semibold flex items-center space-x-2">
+<span class="material-symbols-outlined text-lg" data-icon="filter_list">filter_list</span>
+<span>Exportar CSV</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Advanced Filters -->
+<div class="mb-8 grid grid-cols-5 gap-4 items-end bg-surface-container-low p-6 rounded-xl">
+<div class="space-y-2">
+<label class="text-[0.75rem] font-label font-medium tracking-wider text-on-surface-variant uppercase">Tribunal</label>
+<select class="w-full bg-white border-none rounded-md text-sm font-semibold focus:ring-1 focus:ring-primary/10">
+<option>Todos os Tribunais</option>
+<option>STF</option>
+<option>STJ</option>
+<option>TJSP</option>
+<option>TRF3</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="text-[0.75rem] font-label font-medium tracking-wider text-on-surface-variant uppercase">Status</label>
+<select class="w-full bg-white border-none rounded-md text-sm font-semibold focus:ring-1 focus:ring-primary/10">
+<option>Qualquer Status</option>
+<option>Pendente</option>
+<option>Protocolado</option>
+<option>Arquivado</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="text-[0.75rem] font-label font-medium tracking-wider text-on-surface-variant uppercase">Advogado</label>
+<select class="w-full bg-white border-none rounded-md text-sm font-semibold focus:ring-1 focus:ring-primary/10">
+<option>Responsável</option>
+<option>Dr. Ricardo Alves</option>
+<option>Dra. Maria Clara</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="text-[0.75rem] font-label font-medium tracking-wider text-on-surface-variant uppercase">Período</label>
+<div class="relative">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center text-outline-variant pointer-events-none">
+<span class="material-symbols-outlined text-sm" data-icon="calendar_month">calendar_month</span>
+</span>
+<input class="w-full pl-9 bg-white border-none rounded-md text-sm font-semibold focus:ring-1 focus:ring-primary/10" type="text" value="Últimos 30 dias"/>
+</div>
+</div>
+<div>
+<button class="w-full py-2 bg-surface-container-highest hover:bg-outline-variant/20 transition-colors text-primary font-bold text-sm rounded-md">
+                        Limpar Filtros
+                    </button>
+</div>
+</div>
+<!-- Data Table Container -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-high/30">
+<th class="px-6 py-4 text-[0.75rem] font-label font-semibold text-on-surface-variant uppercase tracking-widest">Data</th>
+<th class="px-6 py-4 text-[0.75rem] font-label font-semibold text-on-surface-variant uppercase tracking-widest">Tribunal</th>
+<th class="px-6 py-4 text-[0.75rem] font-label font-semibold text-on-surface-variant uppercase tracking-widest">Processo</th>
+<th class="px-6 py-4 text-[0.75rem] font-label font-semibold text-on-surface-variant uppercase tracking-widest">Parte</th>
+<th class="px-6 py-4 text-[0.75rem] font-label font-semibold text-on-surface-variant uppercase tracking-widest">Tipo de Prazo</th>
+<th class="px-6 py-4 text-[0.75rem] font-label font-semibold text-on-surface-variant uppercase tracking-widest">Confiança IA</th>
+<th class="px-6 py-4 text-[0.75rem] font-label font-semibold text-on-surface-variant uppercase tracking-widest">Status</th>
+<th class="px-6 py-4 text-[0.75rem] font-label font-semibold text-on-surface-variant uppercase tracking-widest text-right">Ações</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/15">
+<!-- Row 1 -->
+<tr class="group hover:bg-surface-container-high transition-colors">
+<td class="px-6 py-5">
+<div class="text-sm font-semibold text-on-surface">24 Mai 2024</div>
+<div class="text-[11px] text-on-surface-variant font-medium">14:32:01</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-2 py-1 bg-surface-container text-[11px] font-bold rounded text-on-surface">TJSP</span>
+</td>
+<td class="px-6 py-5 font-mono text-xs text-on-primary-container font-semibold">1023498-12.2023.8.26.0100</td>
+<td class="px-6 py-5 text-sm font-medium text-on-surface">Construtora Mar Azul Ltda.</td>
+<td class="px-6 py-5">
+<div class="flex flex-col">
+<span class="text-sm font-semibold text-primary">Apelação</span>
+<span class="text-[10px] text-error font-bold uppercase tracking-tight">Vence em 2 dias</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center space-x-1 px-3 py-1 bg-tertiary-fixed rounded-full w-fit">
+<span class="material-symbols-outlined text-[14px] text-on-tertiary-fixed-variant" data-icon="auto_awesome" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="text-xs font-bold text-on-tertiary-fixed-variant">98.4%</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-3 py-1 rounded-full text-[10px] font-bold uppercase bg-error-container text-on-error-container">Pendente</span>
+</td>
+<td class="px-6 py-5 text-right">
+<div class="flex justify-end space-x-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 hover:bg-white rounded-md text-primary-container transition-colors"><span class="material-symbols-outlined text-lg" data-icon="visibility">visibility</span></button>
+<button class="p-2 hover:bg-white rounded-md text-primary-container transition-colors"><span class="material-symbols-outlined text-lg" data-icon="task_alt">task_alt</span></button>
+<button class="p-2 hover:bg-white rounded-md text-error transition-colors"><span class="material-symbols-outlined text-lg" data-icon="delete">delete</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="group hover:bg-surface-container-high transition-colors">
+<td class="px-6 py-5">
+<div class="text-sm font-semibold text-on-surface">23 Mai 2024</div>
+<div class="text-[11px] text-on-surface-variant font-medium">09:15:22</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-2 py-1 bg-surface-container text-[11px] font-bold rounded text-on-surface">STF</span>
+</td>
+<td class="px-6 py-5 font-mono text-xs text-on-primary-container font-semibold">0043122-88.2024.1.00.0000</td>
+<td class="px-6 py-5 text-sm font-medium text-on-surface">União Federal</td>
+<td class="px-6 py-5">
+<div class="flex flex-col">
+<span class="text-sm font-semibold text-primary">Manifestação</span>
+<span class="text-[10px] text-on-surface-variant font-medium uppercase tracking-tight">Vence em 15 dias</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center space-x-1 px-3 py-1 bg-tertiary-fixed rounded-full w-fit">
+<span class="material-symbols-outlined text-[14px] text-on-tertiary-fixed-variant" data-icon="auto_awesome" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="text-xs font-bold text-on-tertiary-fixed-variant">92.1%</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-3 py-1 rounded-full text-[10px] font-bold uppercase bg-secondary-container text-on-secondary-container">Protocolado</span>
+</td>
+<td class="px-6 py-5 text-right">
+<div class="flex justify-end space-x-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 hover:bg-white rounded-md text-primary-container transition-colors"><span class="material-symbols-outlined text-lg" data-icon="visibility">visibility</span></button>
+<button class="p-2 hover:bg-white rounded-md text-primary-container transition-colors"><span class="material-symbols-outlined text-lg" data-icon="task_alt">task_alt</span></button>
+<button class="p-2 hover:bg-white rounded-md text-error transition-colors"><span class="material-symbols-outlined text-lg" data-icon="delete">delete</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="group hover:bg-surface-container-high transition-colors">
+<td class="px-6 py-5">
+<div class="text-sm font-semibold text-on-surface">22 Mai 2024</div>
+<div class="text-[11px] text-on-surface-variant font-medium">17:58:44</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-2 py-1 bg-surface-container text-[11px] font-bold rounded text-on-surface">TRF3</span>
+</td>
+<td class="px-6 py-5 font-mono text-xs text-on-primary-container font-semibold">5001244-90.2023.4.03.6100</td>
+<td class="px-6 py-5 text-sm font-medium text-on-surface">Banco Capital S/A</td>
+<td class="px-6 py-5">
+<div class="flex flex-col">
+<span class="text-sm font-semibold text-primary">Embargos</span>
+<span class="text-[10px] text-error font-bold uppercase tracking-tight">HOJE às 23:59</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center space-x-1 px-3 py-1 bg-primary-fixed-dim/20 rounded-full w-fit">
+<span class="material-symbols-outlined text-[14px] text-primary" data-icon="auto_awesome">auto_awesome</span>
+<span class="text-xs font-bold text-primary">74.5%</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-3 py-1 rounded-full text-[10px] font-bold uppercase bg-error-container text-on-error-container border-l-4 border-error">Urgente</span>
+</td>
+<td class="px-6 py-5 text-right">
+<div class="flex justify-end space-x-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 hover:bg-white rounded-md text-primary-container transition-colors"><span class="material-symbols-outlined text-lg" data-icon="visibility">visibility</span></button>
+<button class="p-2 hover:bg-white rounded-md text-primary-container transition-colors"><span class="material-symbols-outlined text-lg" data-icon="task_alt">task_alt</span></button>
+<button class="p-2 hover:bg-white rounded-md text-error transition-colors"><span class="material-symbols-outlined text-lg" data-icon="delete">delete</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="group hover:bg-surface-container-high transition-colors">
+<td class="px-6 py-5">
+<div class="text-sm font-semibold text-on-surface">22 Mai 2024</div>
+<div class="text-[11px] text-on-surface-variant font-medium">10:04:12</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-2 py-1 bg-surface-container text-[11px] font-bold rounded text-on-surface">TJSP</span>
+</td>
+<td class="px-6 py-5 font-mono text-xs text-on-primary-container font-semibold">1005521-34.2024.8.26.0100</td>
+<td class="px-6 py-5 text-sm font-medium text-on-surface">Maria Heloisa Souza</td>
+<td class="px-6 py-5">
+<div class="flex flex-col">
+<span class="text-sm font-semibold text-primary">Contestação</span>
+<span class="text-[10px] text-on-surface-variant font-medium uppercase tracking-tight">Vence em 8 dias</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center space-x-1 px-3 py-1 bg-tertiary-fixed rounded-full w-fit">
+<span class="material-symbols-outlined text-[14px] text-on-tertiary-fixed-variant" data-icon="auto_awesome" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="text-xs font-bold text-on-tertiary-fixed-variant">99.8%</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-3 py-1 rounded-full text-[10px] font-bold uppercase bg-surface-container-highest text-on-surface-variant">Arquivado</span>
+</td>
+<td class="px-6 py-5 text-right">
+<div class="flex justify-end space-x-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 hover:bg-white rounded-md text-primary-container transition-colors"><span class="material-symbols-outlined text-lg" data-icon="visibility">visibility</span></button>
+<button class="p-2 hover:bg-white rounded-md text-primary-container transition-colors"><span class="material-symbols-outlined text-lg" data-icon="task_alt">task_alt</span></button>
+<button class="p-2 hover:bg-white rounded-md text-error transition-colors"><span class="material-symbols-outlined text-lg" data-icon="delete">delete</span></button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- Pagination -->
+<div class="px-6 py-4 flex items-center justify-between bg-surface-container-low/50">
+<span class="text-xs font-medium text-on-surface-variant">Exibindo 1-10 de 1,244 publicações</span>
+<div class="flex space-x-2">
+<button class="p-2 hover:bg-white rounded-md transition-colors text-outline-variant disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined text-sm" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="px-3 py-1 bg-primary text-on-primary text-xs font-bold rounded-md">1</button>
+<button class="px-3 py-1 hover:bg-white text-xs font-bold rounded-md">2</button>
+<button class="px-3 py-1 hover:bg-white text-xs font-bold rounded-md">3</button>
+<span class="px-3 py-1 text-xs">...</span>
+<button class="px-3 py-1 hover:bg-white text-xs font-bold rounded-md">125</button>
+<button class="p-2 hover:bg-white rounded-md transition-colors text-primary font-bold">
+<span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- AI Insight Floating Card (Asymmetric) -->
+<div class="fixed bottom-8 right-8 w-80 glass-panel border-l-4 border-primary p-6 rounded-lg shadow-2xl z-20">
+<div class="flex items-center space-x-2 mb-4">
+<span class="material-symbols-outlined text-tertiary-container" data-icon="auto_awesome">auto_awesome</span>
+<h4 class="text-sm font-headline font-bold text-primary tracking-tight">Insight Lexis AI</h4>
+</div>
+<p class="text-xs leading-relaxed text-on-surface mb-4">
+                    Identificamos um padrão de decisões favoráveis no <span class="font-bold">TRF3</span> para casos similares ao processo <span class="font-mono bg-surface-container px-1">1023498-12</span> utilizando a tese de "Exceção de Pré-Executividade".
+                </p>
+<button class="text-[10px] font-bold text-tertiary uppercase tracking-widest flex items-center space-x-1 hover:underline">
+<span>Ver tese completa</span>
+<span class="material-symbols-outlined text-xs" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</main>
+</body></html>

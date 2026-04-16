@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-on-surface": "#eff1f3",
+                        "on-secondary-fixed": "#0d1c2e",
+                        "primary-fixed-dim": "#aec7f6",
+                        "surface-container-high": "#e6e8ea",
+                        "secondary": "#515f74",
+                        "secondary-container": "#d5e3fc",
+                        "error": "#ba1a1a",
+                        "on-secondary-container": "#57657a",
+                        "on-primary-fixed": "#001b3d",
+                        "secondary-fixed": "#d5e3fc",
+                        "surface-variant": "#e0e3e5",
+                        "surface-tint": "#465f88",
+                        "tertiary": "#10002f",
+                        "primary-container": "#002147",
+                        "on-tertiary-fixed": "#25005a",
+                        "primary-fixed": "#d6e3ff",
+                        "inverse-surface": "#2d3133",
+                        "surface-dim": "#d8dadc",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#d2bbff",
+                        "primary": "#000a1e",
+                        "on-surface-variant": "#44474e",
+                        "on-error-container": "#93000a",
+                        "on-background": "#191c1e",
+                        "outline": "#74777f",
+                        "surface": "#f7f9fb",
+                        "on-surface": "#191c1e",
+                        "tertiary-fixed": "#eaddff",
+                        "surface-container": "#eceef0",
+                        "on-tertiary-fixed-variant": "#5a00c6",
+                        "on-primary-container": "#708ab5",
+                        "on-secondary-fixed-variant": "#3a485b",
+                        "error-container": "#ffdad6",
+                        "surface-container-highest": "#e0e3e5",
+                        "outline-variant": "#c4c6cf",
+                        "on-secondary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#f2f4f6",
+                        "secondary-fixed-dim": "#b9c7df",
+                        "on-error": "#ffffff",
+                        "tertiary-container": "#2c0068",
+                        "surface-bright": "#f7f9fb",
+                        "on-primary-fixed-variant": "#2d476f",
+                        "on-tertiary-container": "#9d6bff",
+                        "inverse-primary": "#aec7f6",
+                        "on-tertiary": "#ffffff",
+                        "background": "#f7f9fb"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .court-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 1rem;
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-background min-h-screen flex flex-col">
+<!-- Header / Brand Anchor -->
+<header class="fixed top-0 left-0 right-0 h-16 bg-white flex items-center px-8 z-50">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 bg-primary-container rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container text-xl" data-icon="gavel">gavel</span>
+</div>
+<span class="font-headline font-bold text-lg tracking-tighter text-primary">Lexis AI</span>
+</div>
+</header>
+<main class="flex-grow flex flex-col items-center justify-start pt-32 pb-16 px-4">
+<!-- Stepper -->
+<nav class="w-full max-w-4xl mb-12">
+<div class="flex items-center justify-between relative">
+<!-- Track Background -->
+<div class="absolute top-1/2 left-0 w-full h-0.5 bg-surface-container-highest -translate-y-1/2 z-0"></div>
+<!-- Track Progress -->
+<div class="absolute top-1/2 left-0 w-1/3 h-0.5 bg-primary-container -translate-y-1/2 z-0"></div>
+<!-- Step 1 -->
+<div class="relative z-10 flex flex-col items-center">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-white ring-8 ring-surface">
+<span class="material-symbols-outlined text-xl" data-icon="check">check</span>
+</div>
+<span class="mt-2 font-label text-[10px] uppercase tracking-wider text-on-surface-variant font-semibold">Perfil</span>
+</div>
+<!-- Step 2 (Active) -->
+<div class="relative z-10 flex flex-col items-center">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary ring-8 ring-surface">
+<span class="font-headline font-bold">2</span>
+</div>
+<span class="mt-2 font-label text-[10px] uppercase tracking-wider text-primary font-bold">Tribunais</span>
+</div>
+<!-- Step 3 -->
+<div class="relative z-10 flex flex-col items-center">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface-variant ring-8 ring-surface">
+<span class="font-headline font-bold">3</span>
+</div>
+<span class="mt-2 font-label text-[10px] uppercase tracking-wider text-on-surface-variant font-semibold">Processos</span>
+</div>
+<!-- Step 4 -->
+<div class="relative z-10 flex flex-col items-center">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface-variant ring-8 ring-surface">
+<span class="font-headline font-bold">4</span>
+</div>
+<span class="mt-2 font-label text-[10px] uppercase tracking-wider text-on-surface-variant font-semibold">Revisão</span>
+</div>
+</div>
+</nav>
+<!-- Content Area -->
+<div class="w-full max-w-4xl">
+<div class="text-center mb-10">
+<h1 class="font-headline text-3xl font-bold text-primary tracking-tight mb-2">Configuração de Tribunais</h1>
+<p class="text-on-surface-variant max-w-xl mx-auto">Selecione os tribunais e instâncias que o Digital Jurist deve monitorar em tempo real para sua Architectural Intelligence.</p>
+</div>
+<!-- Bento-style Selection Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Filter Sidebar -->
+<aside class="md:col-span-3 space-y-6">
+<div class="p-4 bg-surface-container-low rounded-xl">
+<p class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant mb-4 font-bold">Filtrar por Região</p>
+<ul class="space-y-2">
+<li><label class="flex items-center gap-3 text-sm text-primary font-medium cursor-pointer"><input checked="" class="rounded border-outline-variant text-primary focus:ring-primary-container" type="checkbox"/> Todos</label></li>
+<li><label class="flex items-center gap-3 text-sm text-on-surface-variant hover:text-primary cursor-pointer"><input class="rounded border-outline-variant text-primary focus:ring-primary-container" type="checkbox"/> Superior (STF/STJ)</label></li>
+<li><label class="flex items-center gap-3 text-sm text-on-surface-variant hover:text-primary cursor-pointer"><input class="rounded border-outline-variant text-primary focus:ring-primary-container" type="checkbox"/> Região Sudeste</label></li>
+<li><label class="flex items-center gap-3 text-sm text-on-surface-variant hover:text-primary cursor-pointer"><input class="rounded border-outline-variant text-primary focus:ring-primary-container" type="checkbox"/> Região Sul</label></li>
+<li><label class="flex items-center gap-3 text-sm text-on-surface-variant hover:text-primary cursor-pointer"><input class="rounded border-outline-variant text-primary focus:ring-primary-container" type="checkbox"/> Região Nordeste</label></li>
+</ul>
+</div>
+<div class="p-4 border border-outline-variant border-dashed rounded-xl">
+<div class="flex items-center gap-2 text-tertiary mb-2">
+<span class="material-symbols-outlined text-lg" data-icon="auto_awesome">auto_awesome</span>
+<span class="text-xs font-bold uppercase tracking-tighter">Sugestão AI</span>
+</div>
+<p class="text-[11px] leading-relaxed text-on-surface-variant">Com base no seu perfil de Direito Civil, recomendamos ativar o <b>TJSP</b> e <b>TJRJ</b> para máxima cobertura jurisprudencial.</p>
+</div>
+</aside>
+<!-- Courts Grid -->
+<div class="md:col-span-9">
+<div class="court-grid">
+<!-- Court Card 1 (Active) -->
+<div class="group relative bg-white border-2 border-primary-container rounded-xl p-4 transition-all hover:bg-surface-container-lowest">
+<div class="absolute top-2 right-2">
+<input checked="" class="w-5 h-5 rounded-full border-outline-variant text-primary-container focus:ring-offset-0" type="checkbox"/>
+</div>
+<div class="w-12 h-12 bg-primary-container/10 rounded flex items-center justify-center mb-3">
+<span class="font-headline font-extrabold text-primary-container text-xs">STF</span>
+</div>
+<h3 class="font-headline font-bold text-sm text-primary">Supremo Tribunal</h3>
+<p class="text-[10px] text-on-surface-variant">Instância Superior</p>
+</div>
+<!-- Court Card 2 -->
+<div class="group relative bg-white border border-outline-variant rounded-xl p-4 transition-all hover:border-primary-container/30 hover:bg-surface-container-lowest">
+<div class="absolute top-2 right-2">
+<input class="w-5 h-5 rounded-full border-outline-variant text-primary-container focus:ring-offset-0" type="checkbox"/>
+</div>
+<div class="w-12 h-12 bg-surface-container-high rounded flex items-center justify-center mb-3">
+<span class="font-headline font-extrabold text-on-surface-variant text-xs">STJ</span>
+</div>
+<h3 class="font-headline font-bold text-sm text-primary">Superior Tribunal</h3>
+<p class="text-[10px] text-on-surface-variant">Justiça Federal</p>
+</div>
+<!-- Court Card 3 (Active) -->
+<div class="group relative bg-white border-2 border-primary-container rounded-xl p-4 transition-all hover:bg-surface-container-lowest">
+<div class="absolute top-2 right-2">
+<input checked="" class="w-5 h-5 rounded-full border-outline-variant text-primary-container focus:ring-offset-0" type="checkbox"/>
+</div>
+<div class="w-12 h-12 bg-primary-container/10 rounded flex items-center justify-center mb-3">
+<span class="font-headline font-extrabold text-primary-container text-xs">TJSP</span>
+</div>
+<h3 class="font-headline font-bold text-sm text-primary">TJ São Paulo</h3>
+<p class="text-[10px] text-on-surface-variant">Justiça Estadual</p>
+</div>
+<!-- Court Card 4 -->
+<div class="group relative bg-white border border-outline-variant rounded-xl p-4 transition-all hover:border-primary-container/30 hover:bg-surface-container-lowest">
+<div class="absolute top-2 right-2">
+<input class="w-5 h-5 rounded-full border-outline-variant text-primary-container focus:ring-offset-0" type="checkbox"/>
+</div>
+<div class="w-12 h-12 bg-surface-container-high rounded flex items-center justify-center mb-3">
+<span class="font-headline font-extrabold text-on-surface-variant text-xs">TJRJ</span>
+</div>
+<h3 class="font-headline font-bold text-sm text-primary">TJ Rio de Janeiro</h3>
+<p class="text-[10px] text-on-surface-variant">Justiça Estadual</p>
+</div>
+<!-- Court Card 5 -->
+<div class="group relative bg-white border border-outline-variant rounded-xl p-4 transition-all hover:border-primary-container/30 hover:bg-surface-container-lowest">
+<div class="absolute top-2 right-2">
+<input class="w-5 h-5 rounded-full border-outline-variant text-primary-container focus:ring-offset-0" type="checkbox"/>
+</div>
+<div class="w-12 h-12 bg-surface-container-high rounded flex items-center justify-center mb-3">
+<span class="font-headline font-extrabold text-on-surface-variant text-xs">TRF3</span>
+</div>
+<h3 class="font-headline font-bold text-sm text-primary">TRF 3ª Região</h3>
+<p class="text-[10px] text-on-surface-variant">Justiça Federal</p>
+</div>
+<!-- Court Card 6 -->
+<div class="group relative bg-white border border-outline-variant rounded-xl p-4 transition-all hover:border-primary-container/30 hover:bg-surface-container-lowest">
+<div class="absolute top-2 right-2">
+<input class="w-5 h-5 rounded-full border-outline-variant text-primary-container focus:ring-offset-0" type="checkbox"/>
+</div>
+<div class="w-12 h-12 bg-surface-container-high rounded flex items-center justify-center mb-3">
+<span class="font-headline font-extrabold text-on-surface-variant text-xs">TJMG</span>
+</div>
+<h3 class="font-headline font-bold text-sm text-primary">TJ Minas Gerais</h3>
+<p class="text-[10px] text-on-surface-variant">Justiça Estadual</p>
+</div>
+<!-- Court Card 7 -->
+<div class="group relative bg-white border border-outline-variant rounded-xl p-4 transition-all hover:border-primary-container/30 hover:bg-surface-container-lowest">
+<div class="absolute top-2 right-2">
+<input class="w-5 h-5 rounded-full border-outline-variant text-primary-container focus:ring-offset-0" type="checkbox"/>
+</div>
+<div class="w-12 h-12 bg-surface-container-high rounded flex items-center justify-center mb-3">
+<span class="font-headline font-extrabold text-on-surface-variant text-xs">TST</span>
+</div>
+<h3 class="font-headline font-bold text-sm text-primary">Superior do Trabalho</h3>
+<p class="text-[10px] text-on-surface-variant">Justiça do Trabalho</p>
+</div>
+<!-- Court Card 8 (Active) -->
+<div class="group relative bg-white border-2 border-primary-container rounded-xl p-4 transition-all hover:bg-surface-container-lowest">
+<div class="absolute top-2 right-2">
+<input checked="" class="w-5 h-5 rounded-full border-outline-variant text-primary-container focus:ring-offset-0" type="checkbox"/>
+</div>
+<div class="w-12 h-12 bg-primary-container/10 rounded flex items-center justify-center mb-3">
+<span class="font-headline font-extrabold text-primary-container text-xs">TRT2</span>
+</div>
+<h3 class="font-headline font-bold text-sm text-primary">TRT 2ª Região</h3>
+<p class="text-[10px] text-on-surface-variant">Justiça do Trabalho</p>
+</div>
+</div>
+<!-- Action Footer inside content -->
+<div class="mt-12 flex items-center justify-between pt-8 border-t border-outline-variant">
+<button class="flex items-center gap-2 text-on-surface-variant font-semibold hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+                            Voltar
+                        </button>
+<div class="flex gap-4">
+<button class="px-6 py-2.5 bg-surface-container-highest text-primary font-bold rounded-lg hover:bg-surface-variant transition-colors">
+                                Pular Etapa
+                            </button>
+<button class="px-8 py-2.5 bg-primary text-on-primary font-bold rounded-lg shadow-lg shadow-primary/10 flex items-center gap-2 hover:opacity-90 transition-all">
+                                Próximo Passo
+                                <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Side Decoration (Editorial Feel) -->
+<div class="fixed bottom-12 left-12 hidden lg:block opacity-10 select-none pointer-events-none">
+<h2 class="font-headline font-bold text-6xl tracking-tighter text-primary">02</h2>
+<div class="w-24 h-1 bg-primary mt-4"></div>
+</div>
+<!-- Background Decoration -->
+<div class="fixed top-0 right-0 -z-10 w-1/3 h-full bg-surface-container-low/30 pointer-events-none"></div>
+</body></html>

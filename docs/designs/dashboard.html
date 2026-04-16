@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Juris Optic | Architectural Intelligence</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-on-surface": "#eff1f3",
+                        "on-secondary-fixed": "#0d1c2e",
+                        "primary-fixed-dim": "#aec7f6",
+                        "surface-container-high": "#e6e8ea",
+                        "secondary": "#515f74",
+                        "secondary-container": "#d5e3fc",
+                        "error": "#ba1a1a",
+                        "on-secondary-container": "#57657a",
+                        "on-primary-fixed": "#001b3d",
+                        "secondary-fixed": "#d5e3fc",
+                        "surface-variant": "#e0e3e5",
+                        "surface-tint": "#465f88",
+                        "tertiary": "#10002f",
+                        "primary-container": "#002147",
+                        "on-tertiary-fixed": "#25005a",
+                        "primary-fixed": "#d6e3ff",
+                        "inverse-surface": "#2d3133",
+                        "surface-dim": "#d8dadc",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#d2bbff",
+                        "primary": "#000a1e",
+                        "on-surface-variant": "#44474e",
+                        "on-error-container": "#93000a",
+                        "on-background": "#191c1e",
+                        "outline": "#74777f",
+                        "surface": "#f7f9fb",
+                        "on-surface": "#191c1e",
+                        "tertiary-fixed": "#eaddff",
+                        "surface-container": "#eceef0",
+                        "on-tertiary-fixed-variant": "#5a00c6",
+                        "on-primary-container": "#708ab5",
+                        "on-secondary-fixed-variant": "#3a485b",
+                        "error-container": "#ffdad6",
+                        "surface-container-highest": "#e0e3e5",
+                        "outline-variant": "#c4c6cf",
+                        "on-secondary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#f2f4f6",
+                        "secondary-fixed-dim": "#b9c7df",
+                        "on-error": "#ffffff",
+                        "tertiary-container": "#2c0068",
+                        "surface-bright": "#f7f9fb",
+                        "on-primary-fixed-variant": "#2d476f",
+                        "on-tertiary-container": "#9d6bff",
+                        "inverse-primary": "#aec7f6",
+                        "on-tertiary": "#ffffff",
+                        "background": "#f7f9fb"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f7f9fb; }
+        .font-headline { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-panel { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(24px); }
+    </style>
+</head>
+<body class="text-on-surface">
+<!-- SideNavBar Shell -->
+<aside class="fixed left-0 top-0 bottom-0 flex flex-col py-8 h-screen w-64 border-r-0 bg-slate-50 dark:bg-slate-900 z-20">
+<div class="px-6 mb-10">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 bg-primary rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-sm" style="font-variation-settings: 'FILL' 1;">gavel</span>
+</div>
+<div>
+<h1 class="text-lg font-bold tracking-tighter text-blue-950 dark:text-white leading-none">Lexis AI</h1>
+<p class="text-[10px] font-headline uppercase tracking-widest text-on-primary-container">Architectural Intelligence</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 px-4 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-blue-950 dark:text-white font-bold border-l-4 border-blue-950 dark:border-blue-400 bg-white dark:bg-blue-950/30 transition-all font-headline text-sm tracking-tight" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-blue-900 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-colors duration-200 font-headline text-sm tracking-tight" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+                Publications
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-blue-900 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-colors duration-200 font-headline text-sm tracking-tight" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+                Agenda
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-blue-900 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-colors duration-200 font-headline text-sm tracking-tight" href="#">
+<span class="material-symbols-outlined" data-icon="article">article</span>
+                Pieces
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-blue-900 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-colors duration-200 font-headline text-sm tracking-tight" href="#">
+<span class="material-symbols-outlined" data-icon="gavel">gavel</span>
+                Processes
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-blue-900 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-colors duration-200 font-headline text-sm tracking-tight" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                Settings
+            </a>
+</nav>
+<div class="px-4 py-6 space-y-1">
+<button class="w-full mb-6 bg-primary text-white py-3 rounded font-headline font-bold text-sm hover:opacity-90 transition-all">
+                New Case
+            </button>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 hover:text-blue-900 font-headline text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+                Support
+            </a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 hover:text-blue-900 font-headline text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+                Sign Out
+            </a>
+</div>
+</aside>
+<!-- TopNavBar Shell -->
+<header class="fixed top-0 right-0 left-64 z-10 flex justify-between items-center px-12 h-16 bg-white dark:bg-slate-950">
+<div class="flex-1 flex items-center max-w-xl">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-sm">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container border-none focus:ring-1 focus:ring-primary/10 rounded text-sm font-body" placeholder="Search cases, documents, or legal precedents..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<button class="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded text-sm font-headline font-semibold">
+                Create New
+            </button>
+<div class="flex items-center gap-4 text-on-surface-variant">
+<button class="material-symbols-outlined hover:text-primary transition-colors" data-icon="notifications">notifications</button>
+<div class="flex items-center gap-3 border-l pl-4 border-outline-variant/30">
+<img alt="User Profile" class="w-8 h-8 rounded-full bg-slate-200" data-alt="professional corporate headshot of a legal consultant in a minimalist studio setting with soft neutral lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLl2k_zij3yZZTzFPbSIT1Q0v0Xu4ev4GR3gXxX3S0w9_m6snSpG6fHme7J1NePvV1IN4WrczGhqeGGUkHaZuHNdkurNElt0toZplyOQ0r_I6B782-m31rYIzw1zEUc5TnUJ0Sk-KU_yafWc-cFSJK__GFv8GbgUvUOTWmP66gtSkHjTdrWF0zxGsj6AhUINWiY5FblRf03mo9SqbjyEv7xAorMAXGJegqvTt6U2sr9MFAV6ivNuPvSjsey9FIM798tZC41g0QhQV1"/>
+<span class="text-sm font-headline font-semibold text-primary">Dr. Julian Vance</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-16 min-h-screen bg-surface">
+<div class="p-12 max-w-[1600px] mx-auto">
+<!-- Header Section -->
+<div class="mb-12 flex justify-between items-end">
+<div class="max-w-2xl">
+<h2 class="text-display-lg font-headline font-bold text-primary tracking-tight leading-none mb-2" style="font-size: 3.5rem;">Visão Geral</h2>
+<p class="text-secondary font-body text-lg">Inteligência preditiva aplicada à sua carteira de prazos e publicações.</p>
+</div>
+<div class="flex gap-2">
+<div class="bg-tertiary-container/10 px-4 py-2 rounded flex items-center gap-2">
+<span class="material-symbols-outlined text-on-tertiary-container text-sm" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="text-on-tertiary-container text-xs font-label font-bold tracking-widest">AI ACTIVE</span>
+</div>
+</div>
+</div>
+<!-- Bento Grid - Top Stats -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+<div class="bg-surface-container-lowest p-6 rounded-xl border-l-4 border-primary">
+<p class="text-on-surface-variant text-[10px] font-label font-bold tracking-widest uppercase mb-4">Total Prazos</p>
+<div class="flex items-baseline gap-2">
+<span class="text-4xl font-headline font-bold text-primary">124</span>
+<span class="text-xs text-secondary font-body">Ativos</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl border-l-4 border-error">
+<p class="text-on-surface-variant text-[10px] font-label font-bold tracking-widest uppercase mb-4">Críticos 24h</p>
+<div class="flex items-baseline gap-2 text-error">
+<span class="text-4xl font-headline font-bold">08</span>
+<span class="material-symbols-outlined text-sm">priority_high</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl border-l-4 border-secondary">
+<p class="text-on-surface-variant text-[10px] font-label font-bold tracking-widest uppercase mb-4">Pendentes Revisão</p>
+<div class="flex items-baseline gap-2">
+<span class="text-4xl font-headline font-bold text-primary">15</span>
+<span class="text-xs text-secondary font-body">Arquivos</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl border-l-4 border-on-tertiary-container">
+<p class="text-on-surface-variant text-[10px] font-label font-bold tracking-widest uppercase mb-4">Novas Publicações</p>
+<div class="flex items-baseline gap-2">
+<span class="text-4xl font-headline font-bold text-on-tertiary-container">32</span>
+<span class="material-symbols-outlined text-on-tertiary-container text-sm" style="font-variation-settings: 'FILL' 1;">new_releases</span>
+</div>
+</div>
+</div>
+<!-- Main Interactive Section: Asymmetric Layout -->
+<div class="grid grid-cols-12 gap-8">
+<!-- Left: 7-Day Forecast Chart (Bars) -->
+<div class="col-span-12 lg:col-span-8 space-y-8">
+<div class="bg-surface-container-lowest p-8 rounded-xl">
+<div class="flex justify-between items-center mb-10">
+<div>
+<h3 class="text-xl font-headline font-bold text-primary">Previsão de Prazos</h3>
+<p class="text-sm text-secondary font-body">Volume projetado para os próximos 7 dias úteis</p>
+</div>
+<div class="flex gap-4">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 bg-primary rounded-full"></span>
+<span class="text-[10px] font-label font-bold tracking-tighter">FATAL</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 bg-secondary-fixed-dim rounded-full"></span>
+<span class="text-[10px] font-label font-bold tracking-tighter">SUGESTÃO</span>
+</div>
+</div>
+</div>
+<div class="flex items-end justify-between h-64 gap-4 px-4">
+<!-- Mon 15 -->
+<div class="flex-1 flex flex-col items-center group">
+<div class="w-full flex flex-col-reverse gap-1 h-full">
+<div class="bg-primary rounded-t h-[40%] w-full"></div>
+<div class="bg-secondary-fixed-dim rounded-t h-[10%] w-full"></div>
+</div>
+<span class="mt-4 text-xs font-label text-on-surface-variant font-bold">SEG 15</span>
+</div>
+<!-- Tue 16 -->
+<div class="flex-1 flex flex-col items-center">
+<div class="w-full flex flex-col-reverse gap-1 h-full">
+<div class="bg-primary rounded-t h-[65%] w-full"></div>
+<div class="bg-secondary-fixed-dim rounded-t h-[20%] w-full"></div>
+</div>
+<span class="mt-4 text-xs font-label text-on-surface-variant font-bold">TER 16</span>
+</div>
+<!-- Wed 17 -->
+<div class="flex-1 flex flex-col items-center">
+<div class="w-full flex flex-col-reverse gap-1 h-full">
+<div class="bg-primary rounded-t h-[25%] w-full"></div>
+<div class="bg-secondary-fixed-dim rounded-t h-[15%] w-full"></div>
+</div>
+<span class="mt-4 text-xs font-label text-on-surface-variant font-bold">QUA 17</span>
+</div>
+<!-- Thu 18 -->
+<div class="flex-1 flex flex-col items-center">
+<div class="w-full flex flex-col-reverse gap-1 h-full">
+<div class="bg-primary rounded-t h-[85%] w-full"></div>
+<div class="bg-secondary-fixed-dim rounded-t h-[10%] w-full"></div>
+</div>
+<span class="mt-4 text-xs font-label text-on-surface-variant font-bold">QUI 18</span>
+</div>
+<!-- Fri 19 -->
+<div class="flex-1 flex flex-col items-center">
+<div class="w-full flex flex-col-reverse gap-1 h-full">
+<div class="bg-primary rounded-t h-[50%] w-full"></div>
+<div class="bg-secondary-fixed-dim rounded-t h-[30%] w-full"></div>
+</div>
+<span class="mt-4 text-xs font-label text-on-surface-variant font-bold">SEX 19</span>
+</div>
+<!-- Sat 20 -->
+<div class="flex-1 flex flex-col items-center opacity-30">
+<div class="w-full flex flex-col-reverse gap-1 h-full">
+<div class="bg-outline-variant rounded-t h-[5%] w-full"></div>
+</div>
+<span class="mt-4 text-xs font-label text-on-surface-variant font-bold">SAB 20</span>
+</div>
+<!-- Sun 21 -->
+<div class="flex-1 flex flex-col items-center opacity-30">
+<div class="w-full flex flex-col-reverse gap-1 h-full">
+<div class="bg-outline-variant rounded-t h-[5%] w-full"></div>
+</div>
+<span class="mt-4 text-xs font-label text-on-surface-variant font-bold">DOM 21</span>
+</div>
+</div>
+</div>
+<!-- Recent Publications (High Density Table) -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden">
+<div class="p-8 border-b border-outline-variant/10 flex justify-between items-center">
+<h3 class="text-xl font-headline font-bold text-primary">Publicações Recentes</h3>
+<button class="text-xs font-label font-bold text-on-primary-container tracking-widest uppercase hover:text-primary">Ver Tudo</button>
+</div>
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low">
+<th class="px-8 py-4 text-[10px] font-label font-bold tracking-widest text-on-surface-variant uppercase">Data/Hora</th>
+<th class="px-8 py-4 text-[10px] font-label font-bold tracking-widest text-on-surface-variant uppercase">Tribunal / Processo</th>
+<th class="px-8 py-4 text-[10px] font-label font-bold tracking-widest text-on-surface-variant uppercase">Natureza</th>
+<th class="px-8 py-4 text-[10px] font-label font-bold tracking-widest text-on-surface-variant uppercase">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<tr class="hover:bg-surface-container-high transition-colors group">
+<td class="px-8 py-6 text-sm font-body text-secondary">Hoje, 09:12</td>
+<td class="px-8 py-6">
+<p class="text-sm font-headline font-bold text-primary">TJSP • 1002345-67.2023.8.26.0100</p>
+<p class="text-xs text-secondary">Vance vs. Global Logistics S.A.</p>
+</td>
+<td class="px-8 py-6">
+<span class="px-3 py-1 bg-tertiary-container text-on-tertiary-container text-[10px] font-label font-bold rounded-sm">SENTENÇA</span>
+</td>
+<td class="px-8 py-6">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 bg-error rounded-full"></span>
+<span class="text-xs font-headline font-semibold text-primary">Pendente Agendamento</span>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-high transition-colors">
+<td class="px-8 py-6 text-sm font-body text-secondary">Hoje, 08:45</td>
+<td class="px-8 py-6">
+<p class="text-sm font-headline font-bold text-primary">STJ • REsp 1.890.342 / RS</p>
+<p class="text-xs text-secondary">União Federal vs. Município de Porto Alegre</p>
+</td>
+<td class="px-8 py-6">
+<span class="px-3 py-1 bg-surface-variant text-on-surface-variant text-[10px] font-label font-bold rounded-sm">ACÓRDÃO</span>
+</td>
+<td class="px-8 py-6">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 bg-primary rounded-full"></span>
+<span class="text-xs font-headline font-semibold text-primary">Agendado</span>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-high transition-colors">
+<td class="px-8 py-6 text-sm font-body text-secondary">Ontem, 18:20</td>
+<td class="px-8 py-6">
+<p class="text-sm font-headline font-bold text-primary">TRF3 • 5001234-88.2022.4.03.6100</p>
+<p class="text-xs text-secondary">Indústria de Metais vs. Receita Federal</p>
+</td>
+<td class="px-8 py-6">
+<span class="px-3 py-1 bg-surface-variant text-on-surface-variant text-[10px] font-label font-bold rounded-sm">DESPACHO</span>
+</td>
+<td class="px-8 py-6">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 bg-primary rounded-full"></span>
+<span class="text-xs font-headline font-semibold text-primary">Agendado</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Right Sidebar Widgets -->
+<div class="col-span-12 lg:col-span-4 space-y-8">
+<!-- Office Health Widget -->
+<div class="bg-primary-container p-8 rounded-xl text-white relative overflow-hidden">
+<div class="relative z-10">
+<h3 class="text-xl font-headline font-bold mb-2">Saúde do Escritório</h3>
+<p class="text-on-primary-container text-xs font-body mb-8">Performance baseada em metas mensais</p>
+<div class="space-y-6">
+<div>
+<div class="flex justify-between items-end mb-2">
+<span class="text-xs font-label font-bold tracking-widest uppercase">Cumprimento de Prazos</span>
+<span class="text-lg font-headline font-bold">94%</span>
+</div>
+<div class="w-full h-1.5 bg-white/10 rounded-full">
+<div class="h-full bg-primary-fixed w-[94%] rounded-full"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between items-end mb-2">
+<span class="text-xs font-label font-bold tracking-widest uppercase">Novas Peças AI</span>
+<span class="text-lg font-headline font-bold">82%</span>
+</div>
+<div class="w-full h-1.5 bg-white/10 rounded-full">
+<div class="h-full bg-secondary-fixed-dim w-[82%] rounded-full"></div>
+</div>
+</div>
+</div>
+<div class="mt-10 pt-6 border-t border-white/10 flex items-center gap-4">
+<div class="p-3 bg-white/5 rounded-lg">
+<span class="material-symbols-outlined text-primary-fixed" style="font-variation-settings: 'FILL' 1;">trending_up</span>
+</div>
+<div>
+<p class="text-xs font-body text-on-primary-container">Crescimento Mensal</p>
+<p class="font-headline font-bold">+12.4% vs anterior</p>
+</div>
+</div>
+</div>
+<!-- Decorative Abstract Shape -->
+<div class="absolute -right-12 -bottom-12 w-48 h-48 bg-primary rounded-full blur-3xl opacity-50"></div>
+</div>
+<!-- AI Insights / Urgent Card -->
+<div class="bg-surface-container-lowest p-8 rounded-xl border-l-4 border-primary">
+<div class="flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<h4 class="text-sm font-label font-bold tracking-widest text-primary uppercase">Insight da Lexis</h4>
+</div>
+<p class="font-headline text-lg font-bold text-primary leading-tight mb-4">
+                            Identificamos um padrão de decisões favoráveis no TRF3 para casos similares ao processo #5001234.
+                        </p>
+<p class="text-sm text-secondary font-body mb-6">
+                            Sugerimos a inclusão da tese de "Exclusão do ICMS" para aumentar em 15% as chances de êxito na revisão pendente.
+                        </p>
+<button class="w-full py-3 bg-surface-container-highest text-primary text-xs font-label font-bold tracking-widest uppercase rounded hover:bg-surface-variant transition-colors">
+                            Aplicar Tese à Peça
+                        </button>
+</div>
+<!-- Calendar Mini Widget -->
+<div class="bg-surface-container-lowest p-8 rounded-xl">
+<div class="flex justify-between items-center mb-6">
+<h4 class="text-sm font-label font-bold tracking-widest text-on-surface-variant uppercase">Agenda • Hoje</h4>
+<span class="text-xs font-body text-secondary">24 Abr, 2024</span>
+</div>
+<div class="space-y-6">
+<div class="flex gap-4 group">
+<div class="text-center">
+<span class="block text-xs font-label font-bold text-on-surface-variant">10:00</span>
+<span class="block text-[10px] text-outline">AM</span>
+</div>
+<div class="flex-1 pb-4 border-b border-outline-variant/10">
+<h5 class="text-sm font-headline font-bold text-primary group-hover:text-primary-container transition-colors">Audiência de Conciliação</h5>
+<p class="text-xs text-secondary font-body">Pje 0800123-11.2024 • 1ª Vara Cível</p>
+</div>
+</div>
+<div class="flex gap-4 group">
+<div class="text-center">
+<span class="block text-xs font-label font-bold text-on-surface-variant">14:30</span>
+<span class="block text-[10px] text-outline">PM</span>
+</div>
+<div class="flex-1 pb-4 border-b border-outline-variant/10">
+<h5 class="text-sm font-headline font-bold text-primary group-hover:text-primary-container transition-colors">Reunião de Diretoria</h5>
+<p class="text-xs text-secondary font-body">Análise de KRAs Trimestrais</p>
+</div>
+</div>
+<div class="flex gap-4 group">
+<div class="text-center">
+<span class="block text-xs font-label font-bold text-on-surface-variant">16:00</span>
+<span class="block text-[10px] text-outline">PM</span>
+</div>
+<div class="flex-1">
+<h5 class="text-sm font-headline font-bold text-primary group-hover:text-primary-container transition-colors">Sustentação Oral (Remoto)</h5>
+<p class="text-xs text-secondary font-body">TJSP • 14ª Câmara de Direito Privado</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Action Action Button (FAB) - Suppressed on Dashboard as per Rules but requested by user for 'New Case' functionality in Sidebar. For visual balance in "Stripe" style, we use the Primary sidebar button. -->
+</body></html>
