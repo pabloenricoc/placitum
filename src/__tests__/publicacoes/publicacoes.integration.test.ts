@@ -65,15 +65,15 @@ describe('criarPublicacaoTexto (CA-1/2/3/4)', () => {
   it('CA-1: cliente NÃO pode injetar escritorioId pelo payload', async () => {
     const deps = makeCreateDeps();
     const texto = 'x'.repeat(80);
+    const payloadComAtaque = {
+      textoIntegral: texto,
+      fonte: 'DJe-TJCE',
+      dataPublicacao: '2026-04-10',
+      escritorioId: 'esc-ATACANTE',
+    };
 
     await criarPublicacaoTexto(
-      {
-        textoIntegral: texto,
-        fonte: 'DJe-TJCE',
-        dataPublicacao: '2026-04-10',
-        // @ts-expect-error campo proibido deve ser descartado
-        escritorioId: 'esc-ATACANTE',
-      } as never,
+      payloadComAtaque,
       { escritorioId: 'esc-a', deps },
     );
 

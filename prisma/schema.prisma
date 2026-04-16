@@ -39,6 +39,7 @@ model Escritorio {
   ativo           Boolean   @default(true)
   users           User[]
   processos       Processo[]
+  publicacoes     Publicacao[]
   fontesAtivas    FontePublicacao[]
   createdAt       DateTime  @default(now())
   updatedAt       DateTime  @updatedAt
@@ -87,6 +88,8 @@ enum StatusProcesso {
 
 model Publicacao {
   id              String    @id @default(cuid())
+  escritorioId    String
+  escritorio      Escritorio @relation(fields: [escritorioId], references: [id])
   processoId      String?
   processo        Processo? @relation(fields: [processoId], references: [id])
   textoIntegral   String
@@ -101,6 +104,7 @@ model Publicacao {
   createdAt       DateTime  @default(now())
   updatedAt       DateTime  @updatedAt
 
+  @@index([escritorioId, dataPublicacao(sort: Desc)])
   @@index([processoId])
   @@index([statusAnalise])
   @@index([dataPublicacao])
