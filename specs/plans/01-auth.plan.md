@@ -95,6 +95,7 @@ Para permitir testes unitários sem subir servidor Next.js, a lógica crítica f
 | `src/lib/auth/email.ts` | `normalizeEmail` |
 | `src/lib/auth/password.ts` | `passwordSchema`, `validatePasswordShape` |
 | `src/lib/auth/guards.ts` | `assertEscritorioAtivo`, `EscritorioInativoError` |
+| `src/lib/auth/routes.ts` | `isPublicRoute(pathname)` — helper testável consumido pelo middleware |
 | `src/lib/auth/errors.ts` | Classes de erro de auth (se necessário para discriminação) |
 | `src/app/api/auth/[...nextauth]/route.ts` | Handlers GET/POST do NextAuth |
 | `src/middleware.ts` | Proteção de rotas |
@@ -140,7 +141,7 @@ Para permitir testes unitários sem subir servidor Next.js, a lógica crítica f
 | CA-2 login sucesso | `integration › retorna user em credenciais válidas` | `src/lib/auth/credentials.ts` |
 | CA-3 senha errada | `integration › retorna null em senha errada` | `src/lib/auth/credentials.ts` |
 | CA-3 e-mail inexistente | `integration › retorna null sem revelar existência de e-mail` | `src/lib/auth/credentials.ts` |
-| CA-11 proteção de rota | `unit › matcher do middleware cobre /dashboard e libera /login` | `src/middleware.ts` |
+| CA-11 proteção de rota | `unit › isPublicRoute protege /dashboard e libera /login` | `src/lib/auth/routes.ts` + `src/middleware.ts` |
 | CA-12 adaptado (escritório inativo) | `integration › bloqueia login quando escritorio.ativo=false` | `src/lib/auth/credentials.ts` + `guards.ts` |
 | CA-13 sessão com escritorioId | `integration › user retornado inclui escritorioId e role` | `src/lib/auth/credentials.ts` |
 | Edge: e-mail com caixa alta / espaço | `unit › normalizeEmail faz trim + lowercase` | `src/lib/auth/email.ts` |
