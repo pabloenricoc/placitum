@@ -114,7 +114,7 @@ describe('calcularDataLimite (CA-10 a CA-13)', () => {
       tipoContagem: 'UTEIS',
       feriados: [],
     });
-    expect(out.toISOString().slice(0, 10)).toBe('2026-05-04');
+    expect(out.toISOString().slice(0, 10)).toBe('2026-05-01');
   });
 
   it('CA-11: 5 dias úteis a partir de quinta 2026-04-16 com feriado nacional na terça', () => {

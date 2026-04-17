@@ -110,12 +110,33 @@ function makeState() {
 
 type State = ReturnType<typeof makeState>;
 
+interface QueryWhere {
+  id?: string;
+  escritorioId?: string;
+  statusAnalise?: string;
+  numeroProcesso?: string;
+}
+
+interface FindFirstArgs {
+  where: QueryWhere;
+  include?: { processo?: boolean };
+}
+
+interface UpdateArgs {
+  where: QueryWhere;
+  data: Record<string, unknown>;
+}
+
+interface CreateArgs {
+  data: Record<string, unknown>;
+}
+
 function makePrismaMock(state: State) {
   let counter = 0;
   const nextId = (prefix: string) => `${prefix}-${++counter}`;
 
   const publicacao = {
-    findFirst: vi.fn(async ({ where, include }: any) => {
+    findFirst: vi.fn(async ({ where, include }: FindFirstArgs) => {
       const row = state.publicacoes.find(
         (p) =>
           p.id === where.id &&
@@ -129,7 +150,7 @@ function makePrismaMock(state: State) {
       if (include?.processo) return { ...row, processo };
       return { ...row };
     }),
-    updateMany: vi.fn(async ({ where, data }: any) => {
+    updateMany: vi.fn(async ({ where, data }: UpdateArgs) => {
       const candidatos = state.publicacoes.filter(
         (p) =>
           p.id === where.id &&
@@ -138,7 +159,7 @@ function makePrismaMock(state: State) {
       for (const p of candidatos) Object.assign(p, data);
       return { count: candidatos.length };
     }),
-    update: vi.fn(async ({ where, data }: any) => {
+    update: vi.fn(async ({ where, data }: UpdateArgs) => {
       const row = state.publicacoes.find((p) => p.id === where.id);
       if (!row) throw new Error('not found');
       Object.assign(row, data);
@@ -147,7 +168,7 @@ function makePrismaMock(state: State) {
   };
 
   const processo = {
-    findFirst: vi.fn(async ({ where }: any) => {
+    findFirst: vi.fn(async ({ where }: FindFirstArgs) => {
       return (
         state.processos.find(
           (p) =>
@@ -156,24 +177,24 @@ function makePrismaMock(state: State) {
         ) ?? null
       );
     }),
-    create: vi.fn(async ({ data }: any) => {
-      const novo = { id: nextId('proc'), ...data };
+    create: vi.fn(async ({ data }: CreateArgs) => {
+      const novo = { id: nextId('proc'), ...data } as StoredProcesso;
       state.processos.push(novo);
       return novo;
     }),
   };
 
   const prazo = {
-    create: vi.fn(async ({ data }: any) => {
-      const novo = { id: nextId('prz'), ...data };
+    create: vi.fn(async ({ data }: CreateArgs) => {
+      const novo = { id: nextId('prz'), ...data } as StoredPrazo;
       state.prazos.push(novo);
       return novo;
     }),
   };
 
   const consumoIA = {
-    create: vi.fn(async ({ data }: any) => {
-      const novo = { id: nextId('cons'), ...data };
+    create: vi.fn(async ({ data }: CreateArgs) => {
+      const novo = { id: nextId('cons'), ...data } as StoredConsumo;
       state.consumos.push(novo);
       return novo;
     }),
@@ -183,22 +204,33 @@ function makePrismaMock(state: State) {
     findMany: vi.fn(async () => state.feriados),
   };
 
-  const $transaction = vi.fn(async (fnOrOps: any) => {
-    if (typeof fnOrOps === 'function') {
-      return fnOrOps({
-        publicacao,
-        processo,
-        prazo,
-        consumoIA,
-      });
-    }
-    return Promise.all(fnOrOps);
-  });
+  type TxCallback = (tx: {
+    publicacao: typeof publicacao;
+    processo: typeof processo;
+    prazo: typeof prazo;
+    consumoIA: typeof consumoIA;
+  }) => Promise<unknown>;
+
+  const $transaction = vi.fn(
+    async (fnOrOps: TxCallback | Promise<unknown>[]) => {
+      if (typeof fnOrOps === 'function') {
+        return fnOrOps({
+          publicacao,
+          processo,
+          prazo,
+          consumoIA,
+        });
+      }
+      return Promise.all(fnOrOps);
+    },
+  );
 
   return { publicacao, processo, prazo, consumoIA, feriado, $transaction };
 }
 
-function makeDeps(state: State, chamar: AnalisarDeps['chamarClaude']): AnalisarDeps {
+type ChamarClaudeFn = AnalisarDeps['chamarClaude'];
+
+function makeDeps(state: State, chamar: ChamarClaudeFn): AnalisarDeps {
   const prismaMock = makePrismaMock(state);
   return {
     prisma: prismaMock as unknown as AnalisarDeps['prisma'],
@@ -209,11 +241,11 @@ function makeDeps(state: State, chamar: AnalisarDeps['chamarClaude']): AnalisarD
 
 describe('analisarPublicacao — happy path (CA-1, CA-14, CA-21)', () => {
   let state: State;
-  let chamar: ReturnType<typeof vi.fn>;
+  let chamar: ChamarClaudeFn;
 
   beforeEach(() => {
     state = makeState();
-    chamar = vi.fn().mockResolvedValue(respostaValida);
+    chamar = vi.fn(async () => respostaValida) as unknown as ChamarClaudeFn;
   });
 
   it('CA-1: persiste status PRAZO_CADASTRADO, prazo, processo e consumo', async () => {
@@ -288,7 +320,7 @@ describe('analisarPublicacao — happy path (CA-1, CA-14, CA-21)', () => {
 describe('analisarPublicacao — sanitização (CA-4)', () => {
   it('envia texto sanitizado à Claude (CPF mascarado)', async () => {
     const state = makeState();
-    const chamar = vi.fn().mockResolvedValue(respostaValida);
+    const chamar = vi.fn(async () => respostaValida) as unknown as ChamarClaudeFn;
     const deps = makeDeps(state, chamar);
 
     await analisarPublicacao(
@@ -296,15 +328,16 @@ describe('analisarPublicacao — sanitização (CA-4)', () => {
       deps,
     );
 
-    expect(chamar).toHaveBeenCalledTimes(1);
-    const arg = chamar.mock.calls[0][0];
+    const spy = chamar as unknown as import('vitest').Mock;
+    expect(spy).toHaveBeenCalledTimes(1);
+    const arg = spy.mock.calls[0][0];
     expect(arg.textoSanitizado).not.toMatch(/123\.456\.789-00/);
     expect(arg.textoSanitizado).toContain('[CPF]');
   });
 
   it('textoIntegral no banco permanece com PII original', async () => {
     const state = makeState();
-    const chamar = vi.fn().mockResolvedValue(respostaValida);
+    const chamar = vi.fn(async () => respostaValida) as unknown as ChamarClaudeFn;
     const deps = makeDeps(state, chamar);
 
     await analisarPublicacao(
@@ -320,7 +353,7 @@ describe('analisarPublicacao — sanitização (CA-4)', () => {
 describe('analisarPublicacao — falhas', () => {
   it('CA-2: publicação de outro escritório → NotFoundError', async () => {
     const state = makeState();
-    const chamar = vi.fn();
+    const chamar = vi.fn() as unknown as ChamarClaudeFn;
     const deps = makeDeps(state, chamar);
 
     await expect(
@@ -336,7 +369,7 @@ describe('analisarPublicacao — falhas', () => {
 
   it('CA-3: publicação já analisada → ConflictError', async () => {
     const state = makeState();
-    const chamar = vi.fn();
+    const chamar = vi.fn() as unknown as ChamarClaudeFn;
     const deps = makeDeps(state, chamar);
 
     await expect(
@@ -351,12 +384,14 @@ describe('analisarPublicacao — falhas', () => {
 
   it('CA-6: JSON inválido → AiParseError + ERRO + ConsumoIA', async () => {
     const state = makeState();
-    const chamar = vi.fn().mockRejectedValue(new AiParseError('parse fail', {
-      input_tokens: 500,
-      output_tokens: 10,
-      cache_read_input_tokens: 0,
-      cache_creation_input_tokens: 0,
-    }));
+    const chamar = vi.fn(async () => {
+      throw new AiParseError('parse fail', {
+        input_tokens: 500,
+        output_tokens: 10,
+        cache_read_input_tokens: 0,
+        cache_creation_input_tokens: 0,
+      });
+    }) as unknown as ChamarClaudeFn;
     const deps = makeDeps(state, chamar);
 
     await expect(
@@ -374,7 +409,7 @@ describe('analisarPublicacao — falhas', () => {
 
   it('CA-7: schema inválido → AiSchemaError + ERRO', async () => {
     const state = makeState();
-    const chamar = vi.fn().mockResolvedValue(respostaSchemaInvalido);
+    const chamar = vi.fn(async () => respostaSchemaInvalido) as unknown as ChamarClaudeFn;
     const deps = makeDeps(state, chamar);
 
     await expect(
@@ -391,9 +426,9 @@ describe('analisarPublicacao — falhas', () => {
 
   it('CA-8: SDK rejeita → AiUnavailableError + ERRO', async () => {
     const state = makeState();
-    const chamar = vi
-      .fn()
-      .mockRejectedValue(new AiUnavailableError('timeout'));
+    const chamar = vi.fn(async () => {
+      throw new AiUnavailableError('timeout');
+    }) as unknown as ChamarClaudeFn;
     const deps = makeDeps(state, chamar);
 
     await expect(
@@ -411,7 +446,7 @@ describe('analisarPublicacao — falhas', () => {
 describe('analisarPublicacao — confiança e prazo', () => {
   it('CA-9: confiança BAIXA → ANALISADA (não PRAZO_CADASTRADO) e Prazo é criado', async () => {
     const state = makeState();
-    const chamar = vi.fn().mockResolvedValue(respostaConfiancaBaixa);
+    const chamar = vi.fn(async () => respostaConfiancaBaixa) as unknown as ChamarClaudeFn;
     const deps = makeDeps(state, chamar);
 
     const out = await analisarPublicacao(
@@ -426,7 +461,7 @@ describe('analisarPublicacao — confiança e prazo', () => {
 
   it('não cria Processo quando IA não retorna numeroProcesso', async () => {
     const state = makeState();
-    const chamar = vi.fn().mockResolvedValue(respostaSemProcesso);
+    const chamar = vi.fn(async () => respostaSemProcesso) as unknown as ChamarClaudeFn;
     const deps = makeDeps(state, chamar);
 
     await analisarPublicacao(
@@ -443,7 +478,7 @@ describe('analisarPublicacao — confiança e prazo', () => {
 describe('analisarPublicacao — concorrência (CA-22)', () => {
   it('apenas uma request ganha; a segunda recebe ConflictError', async () => {
     const state = makeState();
-    const chamar = vi.fn().mockResolvedValue(respostaValida);
+    const chamar = vi.fn(async () => respostaValida) as unknown as ChamarClaudeFn;
     const deps = makeDeps(state, chamar);
 
     const [r1, r2] = await Promise.allSettled([

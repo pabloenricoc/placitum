@@ -2,6 +2,17 @@ import type { Prisma, PrismaClient } from '@/generated/prisma/client';
 import { filtrosListagemSchema, type FiltrosListagemInput } from './validation';
 import { ValidationError } from './errors';
 
+type TipoProvidencia =
+  | 'CONTESTACAO'
+  | 'RECURSO_APELACAO'
+  | 'RECURSO_AGRAVO'
+  | 'EMBARGOS_DECLARACAO'
+  | 'MANIFESTACAO'
+  | 'IMPUGNACAO'
+  | 'CONTRARRAZOES'
+  | 'CUMPRIMENTO_SENTENCA'
+  | 'OUTRO';
+
 export interface ListarPublicacoesDeps {
   prisma: Pick<PrismaClient, 'publicacao' | '$transaction'>;
 }
@@ -25,10 +36,18 @@ export interface PublicacaoParaFeed {
     | 'ERRO';
   confiancaIA: 'ALTA' | 'MEDIA' | 'BAIXA' | null;
   textoIntegral: string;
+  dadosExtraidos: Prisma.JsonValue | null;
   processo: {
     id: string;
     numeroProcesso: string;
     parteCliente: string;
+  } | null;
+  prazo: {
+    id: string;
+    dataLimite: Date;
+    diasPrazo: number;
+    tipoContagem: 'UTEIS' | 'CORRIDOS';
+    tipoProvidencia: TipoProvidencia;
   } | null;
 }
 
@@ -97,7 +116,7 @@ export async function listarPublicacoes(
       orderBy: [{ dataPublicacao: 'desc' }, { createdAt: 'desc' }],
       skip,
       take: pageSize,
-      include: { processo: true },
+      include: { processo: true, prazo: true },
     }),
   ]);
 
@@ -109,11 +128,21 @@ export async function listarPublicacoes(
     statusAnalise: row.statusAnalise,
     confiancaIA: row.confiancaIA,
     textoIntegral: row.textoIntegral,
+    dadosExtraidos: row.dadosExtraidos ?? null,
     processo: row.processo
       ? {
           id: row.processo.id,
           numeroProcesso: row.processo.numeroProcesso,
           parteCliente: row.processo.parteCliente,
+        }
+      : null,
+    prazo: row.prazo
+      ? {
+          id: row.prazo.id,
+          dataLimite: row.prazo.dataLimite,
+          diasPrazo: row.prazo.diasPrazo,
+          tipoContagem: row.prazo.tipoContagem,
+          tipoProvidencia: row.prazo.tipoProvidencia,
         }
       : null,
   }));

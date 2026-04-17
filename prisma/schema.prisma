@@ -41,6 +41,7 @@ model Escritorio {
   processos       Processo[]
   publicacoes     Publicacao[]
   fontesAtivas    FontePublicacao[]
+  consumosIA      ConsumoIA[]
   createdAt       DateTime  @default(now())
   updatedAt       DateTime  @updatedAt
 }
@@ -101,6 +102,7 @@ model Publicacao {
   confiancaIA     NivelConfianca?
   dadosExtraidos  Json?
   prazo           Prazo?
+  consumosIA      ConsumoIA[]
   createdAt       DateTime  @default(now())
   updatedAt       DateTime  @updatedAt
 
@@ -281,4 +283,21 @@ enum AmbitoFeriado {
   NACIONAL
   ESTADUAL
   MUNICIPAL
+}
+
+model ConsumoIA {
+  id                  String    @id @default(cuid())
+  escritorioId        String
+  escritorio          Escritorio @relation(fields: [escritorioId], references: [id])
+  publicacaoId        String?
+  publicacao          Publicacao? @relation(fields: [publicacaoId], references: [id], onDelete: SetNull)
+  modelo              String
+  inputTokens         Int
+  outputTokens        Int
+  cacheReadTokens     Int       @default(0)
+  cacheCreationTokens Int       @default(0)
+  custoEstimadoBrl    Decimal   @default(0) @db.Decimal(10, 4)
+  createdAt           DateTime  @default(now())
+
+  @@index([escritorioId, createdAt(sort: Desc)])
 }

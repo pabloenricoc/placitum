@@ -18,11 +18,13 @@ function makeItem(overrides: Partial<PublicacaoParaFeed> = {}): PublicacaoParaFe
     confiancaIA: null,
     textoIntegral:
       'Texto integral bem longo para garantir que passa da validação de cinquenta caracteres sem problema.',
+    dadosExtraidos: null,
     processo: {
       id: 'proc-1',
       numeroProcesso: '0001234-56.2024.8.26.0100',
       parteCliente: 'Construtora Mar Azul Ltda.',
     },
+    prazo: null,
     ...overrides,
   };
 }

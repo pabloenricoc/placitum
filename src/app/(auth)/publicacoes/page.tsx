@@ -42,7 +42,7 @@ export default async function PublicacoesPage({ searchParams }: PageProps) {
             id: raw.publicacao,
             escritorioId: session.user.escritorioId,
           },
-          include: { processo: true },
+          include: { processo: true, prazo: true },
         })
         .then((row) =>
           row
@@ -54,11 +54,21 @@ export default async function PublicacoesPage({ searchParams }: PageProps) {
                 statusAnalise: row.statusAnalise,
                 confiancaIA: row.confiancaIA,
                 textoIntegral: row.textoIntegral,
+                dadosExtraidos: row.dadosExtraidos ?? null,
                 processo: row.processo
                   ? {
                       id: row.processo.id,
                       numeroProcesso: row.processo.numeroProcesso,
                       parteCliente: row.processo.parteCliente,
+                    }
+                  : null,
+                prazo: row.prazo
+                  ? {
+                      id: row.prazo.id,
+                      dataLimite: row.prazo.dataLimite,
+                      diasPrazo: row.prazo.diasPrazo,
+                      tipoContagem: row.prazo.tipoContagem,
+                      tipoProvidencia: row.prazo.tipoProvidencia,
                     }
                   : null,
               }
